@@ -52,4 +52,24 @@ class SettingFront extends Controller
         SettingFrontM::first()->update($inputdata);
         return redirect()->route('settingsfront.index')->with('success', 'Update was successful!');
     }
+    
+    public function updatedefault(Request $request){
+        $inputdata = [
+            'default_font' => 'Roboto, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji',
+            'heading_font' => 'Montserrat, sans-serif',
+            'nav_font' => 'Open Sans, sans-serif',
+            'background_color' => '#ffffff',
+            'default_color' => '#444444',
+            'heading_color' => '#222222',
+            'main_color' => '#085284',
+            'contrast_color' => '#ffffff',
+            'nav_color' => '#222222',
+            'nav_hover_color' => '#085284',
+            'nav_dropdown_background_color' => '#ffffff',
+            'nav_dropdown_color' => '#222222',
+            'nav_dropdown_hover_color' => '#085284',
+        ];
+        SettingFrontM::first()->update($inputdata);
+        return redirect()->route('settingsfront.index')->with('success', 'Update was successful!');
+    }
 }

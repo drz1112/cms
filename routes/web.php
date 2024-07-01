@@ -34,10 +34,12 @@ Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindash
     Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access'], 'prefix' => '/setting-website'], function () {
         Route::get('/home', [SettingWebsite::class, 'index'])->name('settingswebsite.index');
         Route::put('/update', [SettingWebsite::class, 'update'])->name('settingswebsite.update');
+        Route::put('/updatedefault', [SettingWebsite::class, 'updatedefault'])->name('settingswebsite.updatedefault');
     });
     Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access'], 'prefix' => '/setting-front'], function () {
         Route::get('/home', [SettingFront::class, 'index'])->name('settingsfront.index');
         Route::put('/update', [SettingFront::class, 'update'])->name('settingsfront.update');
+        Route::put('/updatedefault', [SettingFront::class, 'updatedefault'])->name('settingsfront.updatedefault');
     });
 
     Route::group(['middleware' => ['auth','permission:alldashboard.access|admindashboard.access'], 'prefix' => '/pages'], function () {

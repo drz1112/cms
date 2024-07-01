@@ -5,7 +5,16 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">Setting Website</h5>
+                    <h5 class="card-title mb-0" style="display: ruby;">
+                      <form action="{{ route('settingswebsite.updatedefault')}}" method="POST">
+                        @method('put')
+                        @csrf
+                        <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Apakah anda kembali reset setting website?')">
+                            <i class="fas fa-fw fa-recycle"></i> Reset
+                        </button>
+                    </form>
+                      Setting Website
+                    </h5>
                 </div>
                 <div class="card-body">
                     <div class="row">

@@ -168,4 +168,34 @@ class SettingWebsite extends Controller
         SettingWebsiteM::first()->update($inputdata);
         return redirect()->route('settingswebsite.index')->with('success', 'Update was successful!');
     }
+
+    public function updatedefault(Request $request) {
+
+        $inputdata = [
+            'site_title' => 'CMS TI UMKLA',
+            'site_keyword' => 'CMS TI UMKLA',
+            'site_description' => 'CMS TI UMKLA',
+            'site_Image_favicon' => 'img/favicon.png',
+            'site_Image_navbar' => 'img/Logo-MDMC-Putih.png',
+            'site_Image_footer' => 'img/Logo-MDMC-Klaten.png',
+            'site_Image_login' => 'img/Logo-login-default.png',
+            'site_Image_dashboard' => 'img/Logo-MDMC-Klaten.png',
+
+            'site_twitter' => 'https://twitter.com/',
+            'site_facebook' => 'https://www.facebook.com/',
+            'site_instagram' => 'https://www.instagram.com/',
+            'site_youtube' => 'https://www.youtube.com/',
+            'site_tiktok' => 'https://www.tiktok.com/',
+            
+            'site_contact_email' => 'admin@umkla.ac.id',
+            'site_contact_wa' => '081392236479',
+            'site_contact_wa_content' => 'Assalamualaikum Warahmatullahi Wabarakatuh, Admin Prodi TI',
+            'site_contact_tlp' => '(0272) 323120',
+            'site_contact_address' => 'Jl. Jombor Indah, Gemolong, Buntalan, Kec. Klaten Tengah Kabupaten Klaten, Jawa Tengah 57419',
+        ];
+        SettingWebsiteM::first()->update($inputdata);
+        return redirect()->route('settingswebsite.index')->with('success', 'Update was successful!');
+    }
+
+
 }

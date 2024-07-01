@@ -5,7 +5,16 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">Setting Front</h5>
+                    <h5 class="card-title mb-0" style="display: ruby;">
+                        <form action="{{ route('settingsfront.updatedefault')}}" method="POST">
+                            @method('put')
+                            @csrf
+                            <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Apakah anda kembali reset setting halaman depan?')">
+                                <i class="fas fa-fw fa-recycle"></i> Reset
+                            </button>
+                        </form>
+                        Setting Front
+                    </h5>
                 </div>
                 <div class="card-body">
                     <div class="row">
