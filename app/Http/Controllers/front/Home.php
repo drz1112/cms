@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Http\Controllers\front;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class Home extends Controller
+{
+    public function index() {
+        $data = [
+            'settingweb' => SettingWebsiteM::first(),
+            'categories' => KategoriM::with('children')->where('parentid', 0)->where('menustatus', 1)->get(),
+        ];
+        return view('front/page.index', $data);
+    }
+}
