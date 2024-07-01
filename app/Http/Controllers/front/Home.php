@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Models\backend\SettingWebsiteM;
+use App\Models\KategoriM;
 use Illuminate\Http\Request;
 
 class Home extends Controller

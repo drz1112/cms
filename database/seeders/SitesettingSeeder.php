@@ -13,8 +13,8 @@ class SitesettingSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('site_setting')->truncate();
-        DB::table('site_setting')->insert([
+        DB::table('site_settings')->truncate();
+        DB::table('site_settings')->insert([
             [
                 'site_title' => 'CMS TI UMKLA',
                 'site_keyword' => 'CMS TI UMKLA',

@@ -1,13 +1,19 @@
 <?php
 
+use App\Http\Controllers\backend\Home as BackHome;
+use App\Http\Controllers\backend\KategoriMenu;
+use App\Http\Controllers\backend\Login;
+use App\Http\Controllers\backend\Pages;
+use App\Http\Controllers\backend\Post;
+use App\Http\Controllers\backend\SettingWebsite;
 use App\Http\Controllers\front\Home as FrontHome;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontHome::class, 'index'])->name('FrontHome.index');
 
-Route::get('/ti-auth/login', [Login::class, 'login'])->name('login');
-Route::post('/ti-auth/authlogin', [Login::class, 'authlogin'])->name('ceklogin');
-Route::get('/ti-auth/authlogout', [Login::class, 'authlogout'])->name('auth.logout');
+Route::get('/ti-admin/login', [Login::class, 'login'])->name('login');
+Route::post('/ti-admin/authlogin', [Login::class, 'authlogin'])->name('ceklogin');
+Route::get('/ti-admin/authlogout', [Login::class, 'authlogout'])->name('auth.logout');
 
 Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access|anggota.access'], 'prefix' => '/ti-auth'], function () {
     Route::get('/dashboard', [BackHome::class, 'index'])->name('backhome.index');
