@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\KategoriMenu;
 use App\Http\Controllers\backend\Login;
 use App\Http\Controllers\backend\Pages;
 use App\Http\Controllers\backend\Post;
+use App\Http\Controllers\backend\SettingFront;
 use App\Http\Controllers\backend\SettingWebsite;
 use App\Http\Controllers\front\Home as FrontHome;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,10 @@ Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindash
     Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access'], 'prefix' => '/setting-website'], function () {
         Route::get('/home', [SettingWebsite::class, 'index'])->name('settingswebsite.index');
         Route::put('/update', [SettingWebsite::class, 'update'])->name('settingswebsite.update');
+    });
+    Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access'], 'prefix' => '/setting-front'], function () {
+        Route::get('/home', [SettingFront::class, 'index'])->name('settingsfront.index');
+        Route::put('/update', [SettingFront::class, 'update'])->name('settingsfront.update');
     });
 
     Route::group(['middleware' => ['auth','permission:alldashboard.access|admindashboard.access'], 'prefix' => '/pages'], function () {

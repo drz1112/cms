@@ -21,7 +21,7 @@ class SettingFrontSeed extends Seeder
                 'nav_font' => 'Open Sans, sans-serif',
                 'background_color' => '#ffffff',
                 'default_color' => '#444444',
-                'heading_color' => '#22222',
+                'heading_color' => '#222222',
                 'main_color' => '#085284',
                 'contrast_color' => '#ffffff',
                 'nav_color' => '#222222',
