@@ -134,11 +134,5 @@
                   // types: [ 'png'],
               },
           })
-          .then( editor => {
-              console.log( editor );
-          })
-          .catch( error => {
-              console.error( error );
-          })
 </script>
 @endsection
