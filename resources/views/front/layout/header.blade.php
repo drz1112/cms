@@ -18,25 +18,25 @@
   
     <link href="{{asset('css/main.css')}}" rel="stylesheet">
     <style>
-      /* :root {
-        --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        --heading-font: "Montserrat",  sans-serif;
-        --nav-font: "Open Sans",  sans-serif;
+      :root {
+        --default-font: {{ $settingfront->default_font}};
+        --heading-font: {{ $settingfront->heading_font }};
+        --nav-font: {{ $settingfront->nav_font }};
       }
 
       :root { 
-        --background-color: #ffffff;
-        --default-color: #444444;
-        --heading-color: #222222;
-        --main-color: {{ $settingweb->site_title }};
-        --contrast-color: #ffffff;
+        --background-color: {{ $settingfront->background_color }};
+        --default-color: {{ $settingfront->default_color }};
+        --heading-color: {{ $settingfront->heading_color }};
+        --main-color: {{ $settingfront->main_color }};
+        --contrast-color: {{ $settingfront->contrast_color }};
       }
       :root {
-        --nav-color: #222222; 
-        --nav-hover-color: {{ $settingweb->site_title }};
-        --nav-dropdown-background-color: #ffffff;
-        --nav-dropdown-color: #222222;
-        --nav-dropdown-hover-color: {{ $settingweb->site_title }};
-      } */
+        --nav-color:{{ $settingfront->nav_color }}; 
+        --nav-hover-color: {{ $settingfront->nav_hover_color }};
+        --nav-dropdown-background-color: {{ $settingfront->nav_dropdown_background_color }};
+        --nav-dropdown-color: {{ $settingfront->nav_dropdown_color }};
+        --nav-dropdown-hover-color: {{$settingfront->nav_dropdown_hover_color}};
+      }
     </style>
   </head>

@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionSeeder::class);
         $this->call(KategoriSeeder::class);
         $this->call(SitesettingSeeder::class);
+        $this->call(SettingFrontSeed::class);
     }
 }
