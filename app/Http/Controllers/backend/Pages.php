@@ -188,7 +188,7 @@ class Pages extends Controller
             ->make(true);
         }
         $data = [
-            'post_website' => SettingWebsiteM::first(),
+            'settingweb' => SettingWebsiteM::first(),
         ];
         return view('backend/page/pages.home', $data);
     }
@@ -202,7 +202,7 @@ class Pages extends Controller
             $data = [
                 'title_table' => 'Pages New',
                 'category' => $check,
-                'post_website' => SettingWebsiteM::first()
+                'settingweb' => SettingWebsiteM::first(),
             ];
             return view('backend/page/pages.add', $data);
         }   
@@ -272,7 +272,7 @@ class Pages extends Controller
                         ->where('pages_slug', $request->pages_slug)
                         ->first();
         $category = KategoriM::where('type','page')->get();
-        $post_website = SettingWebsiteM::first();        
+        $settingweb = SettingWebsiteM::first();        
         preg_match_all('@<img.*src="([^"]*)"[^>/]*/?>@Ui', $post->pages_content, $out);
             for ($i=0; $i < count($out[1]); $i++) { 
                 DB::table('fileuploadmanager')->insert([
@@ -283,7 +283,7 @@ class Pages extends Controller
                     'updated_at' => date("Y-m-d H:i:s"),
                 ]);
             }
-        return view('backend/page/pages.edit', compact('post','category', 'post_website'));
+        return view('backend/page/pages.edit', compact('post','category', 'settingweb'));
     }
 
     public function update(Request $request)

@@ -25,7 +25,7 @@ class KategoriMenu extends Controller
         }
         $data = [
             'categories' => $ss,
-            'post_website' => SettingWebsiteM::first(),
+            'settingweb' => SettingWebsiteM::first(),
         ];
         return view('backend/page/kategori.index', $data);
     }
@@ -34,7 +34,7 @@ class KategoriMenu extends Controller
     {
         $data = [
             'parent' => KategoriM::where('parentid', 0)->get(),
-            'post_website' => SettingWebsiteM::first(),
+            'settingweb' => SettingWebsiteM::first(),
         ];
         return view('backend/page/kategori.add', $data);
     }
@@ -93,12 +93,14 @@ class KategoriMenu extends Controller
         $cek =  KategoriM::where('slug', $slugs)->first();
         if ($cek->parentid === 0) {
             $post = KategoriM::where('slug', $slugs)->first();
-            return view('backend/page/kategori.edit', compact('post'));
+            $settingweb = SettingWebsiteM::first();
+            return view('backend/page/kategori.edit', compact('post', 'settingweb'));
 
         } else {
             $parent = KategoriM::where('parentid', 0)->get();
             $post = KategoriM::where('slug', $slugs)->first();
-            return view('backend/page/kategori.edit', compact('post', 'parent'));
+            $settingweb = SettingWebsiteM::first();
+            return view('backend/page/kategori.edit', compact('post', 'parent', 'settingweb'));
         }
     }
     public function update(Request $request)

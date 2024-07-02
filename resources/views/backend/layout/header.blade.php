@@ -5,7 +5,7 @@
     <meta name="description" content="Website resmi S1 Teknologi Informasi Universitas Muhammadiyah Klaten.">
     <meta name="keywords" content="TI Klaten, UMKLA">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="{{asset('img/favicon.png')}}" />
+    <link rel="shortcut icon" href="{{asset('/'.$settingweb->site_Image_favicon)}}" />
 
     <title>Admin</title>
     <link href="{{asset('vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">

@@ -12,7 +12,7 @@ class SettingFront extends Controller
     public function index(Request $request)
     {
         $data = [
-            'post_website' => SettingWebsiteM::first(),
+            'settingweb' => SettingWebsiteM::first(),
             'post_front' => SettingFrontM::first(),
         ];
         return view('backend/page/settingfront.home', $data);

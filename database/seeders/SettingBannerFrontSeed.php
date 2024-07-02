@@ -27,8 +27,8 @@ class SettingBannerFrontSeed extends Seeder
                 'text_link_video_color' =>'#FFFFFF',
                 'hubungi_kami' =>'6281392236479',
                 'hubungi_kami_text' =>'Assalamualaikum Warahmatullahi Wabarakatuh, Admin Prodi TI',
-                'image_banner_1' =>'img/banner-1800-720.webp',
-                'image_banner_2' =>'img/banner-1800-720-(2).webp',
+                'image_banner_1' =>'img/default-banner-1800-720-(1).webp',
+                'image_banner_2' =>'img/default-banner-1800-720-(2).webp',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]

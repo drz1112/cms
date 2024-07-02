@@ -23,7 +23,7 @@
                             @csrf
                                 <div class="mb-3 col-md-12">
                                     <label for="firstName" class="form-label">Title</label>
-                                    <input class="form-control @error('site_title') is-invalid @enderror" type="text" id="firstName" name="site_title" value="{{ old('site_title', $post_website->site_title) }}" >
+                                    <input class="form-control @error('site_title') is-invalid @enderror" type="text" id="firstName" name="site_title" value="{{ old('site_title', $settingweb->site_title) }}" >
                                     @error('site_title')
                                         <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                             {{ $message}}
@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="mb-3 col-md-12">
                                     <label for="firstName" class="form-label">Keyword</label>
-                                    <input class="form-control @error('site_keyword') is-invalid @enderror" type="text" id="firstName" name="site_keyword" value="{{ old('site_keyword',$post_website->site_keyword) }}" >
+                                    <input class="form-control @error('site_keyword') is-invalid @enderror" type="text" id="firstName" name="site_keyword" value="{{ old('site_keyword',$settingweb->site_keyword) }}" >
                                     @error('site_keyword')
                                         <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                             {{ $message}}
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="mb-3 col-md-12">
                                     <label for="firstName" class="form-label">Description</label>
-                                    <input class="form-control  @error('site_description') is-invalid @enderror" type="text" id="firstName" name="site_description" value="{{ old('site_description',$post_website->site_description) }}" >
+                                    <input class="form-control  @error('site_description') is-invalid @enderror" type="text" id="firstName" name="site_description" value="{{ old('site_description',$settingweb->site_description) }}" >
                                     @error('site_description')
                                         <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                             {{ $message}}
@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="mb-3 col-md-12">
                                     <label for="firstName" class="form-label">Email Contact</label>
-                                    <input class="form-control  @error('site_contact_email') is-invalid @enderror" type="text" id="firstName" name="site_contact_email" value="{{ old('site_contact_email',$post_website->site_contact_email) }}" >
+                                    <input class="form-control  @error('site_contact_email') is-invalid @enderror" type="text" id="firstName" name="site_contact_email" value="{{ old('site_contact_email',$settingweb->site_contact_email) }}" >
                                     @error('site_contact_email')
                                         <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                             {{ $message}}
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="mb-3 col-md-12">
                                     <label for="firstName" class="form-label">WA Contact <i class="bx bx-help-circle " data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Gunakan 62 sebagai pengganti 0" aria-label="Gunakan 62 sebagai pengganti 0"></i></label>
-                                    <input class="form-control  @error('site_contact_wa') is-invalid @enderror" type="text" id="firstName" name="site_contact_wa" value="{{ old('site_contact_wa',$post_website->site_contact_wa) }}" >
+                                    <input class="form-control  @error('site_contact_wa') is-invalid @enderror" type="text" id="firstName" name="site_contact_wa" value="{{ old('site_contact_wa',$settingweb->site_contact_wa) }}" >
                                     @error('site_contact_wa')
                                         <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                             {{ $message}}
@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="mb-3 col-md-12">
                                     <label for="firstName" class="form-label">WA Message</label>
-                                    <input class="form-control  @error('site_contact_wa_content') is-invalid @enderror" type="text" id="firstName" name="site_contact_wa_content" value="{{ old('site_contact_wa_content',$post_website->site_contact_wa_content) }}" >
+                                    <input class="form-control  @error('site_contact_wa_content') is-invalid @enderror" type="text" id="firstName" name="site_contact_wa_content" value="{{ old('site_contact_wa_content',$settingweb->site_contact_wa_content) }}" >
                                     @error('site_contact_wa_content')
                                         <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                             {{ $message}}
@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="mb-3 col-md-12">
                                     <label for="firstName" class="form-label">Tlp/Fax Contact</label>
-                                    <input class="form-control  @error('site_contact_tlp') is-invalid @enderror" type="text" id="firstName" name="site_contact_tlp" value="{{ old('site_contact_tlp',$post_website->site_contact_tlp) }}" >
+                                    <input class="form-control  @error('site_contact_tlp') is-invalid @enderror" type="text" id="firstName" name="site_contact_tlp" value="{{ old('site_contact_tlp',$settingweb->site_contact_tlp) }}" >
                                     @error('site_contact_tlp')
                                         <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                             {{ $message}}
@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="mb-3 col-md-12">
                                     <label for="firstName" class="form-label">Address <i class="bx bx-help-circle " data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Gunakan <br> untuk newline" aria-label="Gunakan <br> untuk newline"></i></label>
-                                    <input class="form-control  @error('site_contact_address') is-invalid @enderror" type="text" id="firstName" name="site_contact_address" value="{{ old('site_contact_address',$post_website->site_contact_address) }}" >
+                                    <input class="form-control  @error('site_contact_address') is-invalid @enderror" type="text" id="firstName" name="site_contact_address" value="{{ old('site_contact_address',$settingweb->site_contact_address) }}" >
                                     @error('site_contact_address')
                                         <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                             {{ $message}}
@@ -99,7 +99,7 @@
         
                                 <div class="mb-3 col-md-12">
                                   <label for="firstName" class="form-label">Twitter Account</label>
-                                  <input class="form-control @error('site_twitter') is-invalid @enderror" type="text" id="firstName" name="site_twitter" value="{{ old('site_twitter',$post_website->site_twitter) }}" >
+                                  <input class="form-control @error('site_twitter') is-invalid @enderror" type="text" id="firstName" name="site_twitter" value="{{ old('site_twitter',$settingweb->site_twitter) }}" >
                                   @error('site_twitter')
                                       <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                           {{ $message}}
@@ -108,7 +108,7 @@
                                 </div>
                                 <div class="mb-3 col-md-12">
                                   <label for="firstName" class="form-label">Facebook Account</label>
-                                  <input class="form-control @error('site_facebook') is-invalid @enderror" type="text" id="firstName" name="site_facebook" value="{{ old('site_facebook',$post_website->site_facebook) }}" >
+                                  <input class="form-control @error('site_facebook') is-invalid @enderror" type="text" id="firstName" name="site_facebook" value="{{ old('site_facebook',$settingweb->site_facebook) }}" >
                                   @error('site_facebook')
                                       <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                           {{ $message}}
@@ -117,7 +117,7 @@
                                 </div>
                                 <div class="mb-3 col-md-12">
                                   <label for="firstName" class="form-label">Instagram Account</label>
-                                  <input class="form-control @error('site_instagram') is-invalid @enderror" type="text" id="firstName" name="site_instagram" value="{{ old('site_instagram',$post_website->site_instagram) }}" >
+                                  <input class="form-control @error('site_instagram') is-invalid @enderror" type="text" id="firstName" name="site_instagram" value="{{ old('site_instagram',$settingweb->site_instagram) }}" >
                                   @error('site_instagram')
                                       <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                           {{ $message}}
@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="mb-3 col-md-12">
                                   <label for="firstName" class="form-label">Youtube Account</label>
-                                  <input class="form-control @error('site_youtube') is-invalid @enderror" type="text" id="firstName" name="site_youtube" value="{{ old('site_youtube',$post_website->site_youtube) }}" >
+                                  <input class="form-control @error('site_youtube') is-invalid @enderror" type="text" id="firstName" name="site_youtube" value="{{ old('site_youtube',$settingweb->site_youtube) }}" >
                                   @error('site_youtube')
                                       <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                           {{ $message}}
@@ -135,7 +135,7 @@
                                 </div>
                                 <div class="mb-3 col-md-12">
                                   <label for="firstName" class="form-label">Tiktok Account</label>
-                                  <input class="form-control @error('site_tiktok') is-invalid @enderror" type="text" id="firstName" name="site_tiktok" value="{{ old('site_tiktok',$post_website->site_tiktok) }}" >
+                                  <input class="form-control @error('site_tiktok') is-invalid @enderror" type="text" id="firstName" name="site_tiktok" value="{{ old('site_tiktok',$settingweb->site_tiktok) }}" >
                                   @error('site_tiktok')
                                       <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                           {{ $message}}
@@ -148,7 +148,7 @@
                                         Image Login
                                         <i class="fa-solid fa-circle-info" data-toggle="tooltip" title="ukuran 450x450, ukuran max: 2MB"></i>
                                     </label>
-                                    @if (empty($post_website->site_Image_login))
+                                    @if (empty($settingweb->site_Image_login))
                                     <div class="input-group">
                                         <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -199,7 +199,7 @@
                                                 </div>
                                                 <div class="modal-body" style="background-color: lightgray;">
                                                   <div class="row">
-                                                    <img class="img-preview img-fluid " src="{{ asset('/'.$post_website->site_Image_login) }}">
+                                                    <img class="img-preview img-fluid " src="{{ asset('/'.$settingweb->site_Image_login) }}">
                                                   </div>
                                                 </div>
                                               </div>
@@ -222,7 +222,7 @@
                                         Image Dahsboard 
                                         <i class="fa-solid fa-circle-info" data-toggle="tooltip" title="ukuran min-width=220 min-height=50, ukuran max: 2MB"></i>
                                     </label>
-                                    @if (empty($post_website->site_Image_dashboard))
+                                    @if (empty($settingweb->site_Image_dashboard))
                                     <div class="input-group">
                                         <button id="btnimgpreview2" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalCenter2" hidden>
                                             <i class="fas fa-fw fa-eye"></i> show Image
@@ -268,7 +268,7 @@
                                                 </div>
                                                 <div class="modal-body" style="background-color: lightgray;">
                                                   <div class="row">
-                                                    <img class="img-preview2 img-fluid " src="{{ asset('/'.$post_website->site_Image_dashboard) }}">
+                                                    <img class="img-preview2 img-fluid " src="{{ asset('/'.$settingweb->site_Image_dashboard) }}">
                                                   </div>
                                                 </div>
                                               </div>
@@ -292,7 +292,7 @@
                                         Image Favicon
                                         <i class="fa-solid fa-circle-info" data-toggle="tooltip" title="ukuran 180x180, ukuran max: 2MB"></i>
                                     </label>
-                                    @if (empty($post_website->site_Image_favicon))
+                                    @if (empty($settingweb->site_Image_favicon))
                                     <div class="input-group">
                                         <button  id="btnimgpreview3" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalCenter3" hidden>
                                             <i class="fas fa-fw fa-eye"></i> show Image
@@ -336,7 +336,7 @@
                                                 </div>
                                                 <div class="modal-body" style="background-color: lightgray;">
                                                   <div class="row">
-                                                    <img class="img-preview3 img-fluid " src="{{ asset('/'.$post_website->site_Image_favicon) }}">
+                                                    <img class="img-preview3 img-fluid " src="{{ asset('/'.$settingweb->site_Image_favicon) }}">
                                                   </div>
                                                 </div>
                                               </div>
@@ -360,7 +360,7 @@
                                         Image Footer
                                         <i class="fa-solid fa-circle-info" data-toggle="tooltip" title="ukuran min-width=450 min-height=180, ukuran max: 2MB"></i>
                                     </label>
-                                    @if (empty($post_website->site_Image_footer))
+                                    @if (empty($settingweb->site_Image_footer))
                                     <div class="input-group">
                                         <button  id="btnimgpreview4" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalCenter4" hidden>
                                             <i class="fas fa-fw fa-eye"></i> show Image
@@ -404,7 +404,7 @@
                                                 </div>
                                                 <div class="modal-body" style="background-color: lightgray;">
                                                   <div class="row">
-                                                    <img class="img-preview4 img-fluid " src="{{ asset('/'.$post_website->site_Image_footer) }}">
+                                                    <img class="img-preview4 img-fluid " src="{{ asset('/'.$settingweb->site_Image_footer) }}">
                                                   </div>
                                                 </div>
                                               </div>
@@ -427,7 +427,7 @@
                                         Image Navbar
                                         <i class="fa-solid fa-circle-info" data-toggle="tooltip" title="ukuran min-width=450 min-height=180, ukuran max: 2MB"></i>
                                     </label>
-                                    @if (empty($post_website->site_Image_navbar))
+                                    @if (empty($settingweb->site_Image_navbar))
                                     <div class="input-group">
                                         <button  id="btnimgpreview5" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalCenter5" hidden>
                                             <i class="fas fa-fw fa-eye"></i> show Image
@@ -471,7 +471,7 @@
                                                 </div>
                                                 <div class="modal-body" style="background-color: lightgray;">
                                                   <div class="row">
-                                                    <img class="img-preview5 img-fluid " src="{{ asset('/'.$post_website->site_Image_navbar) }}">
+                                                    <img class="img-preview5 img-fluid " src="{{ asset('/'.$settingweb->site_Image_navbar) }}">
                                                   </div>
                                                 </div>
                                               </div>

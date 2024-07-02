@@ -12,7 +12,7 @@ class SettingWebsite extends Controller
     public function index(Request $request)
     {
         $data = [
-            'post_website' => SettingWebsiteM::first(),
+            'settingweb' => SettingWebsiteM::first(),
         ];
         return view('backend/page/settingwebsite.home', $data);
     }
@@ -175,11 +175,11 @@ class SettingWebsite extends Controller
             'site_title' => 'CMS TI UMKLA',
             'site_keyword' => 'CMS TI UMKLA',
             'site_description' => 'CMS TI UMKLA',
-            'site_Image_favicon' => 'img/favicon.png',
-            'site_Image_navbar' => 'img/Logo-MDMC-Putih.png',
-            'site_Image_footer' => 'img/Logo-footer-default.png',
-            'site_Image_login' => 'img/Logo-login-default.png',
-            'site_Image_dashboard' => 'img/Logo-dashboard-default.webp',
+            'site_Image_favicon' => 'img/default-favicon.png',
+            'site_Image_navbar' => 'img/default-logo-navbar.png',
+            'site_Image_footer' => 'img/default-Logo-footer.png',
+            'site_Image_login' => 'img/default-Logo-login.png',
+            'site_Image_dashboard' => 'img/default-logo-sidebar.png',
 
             'site_twitter' => 'https://twitter.com/',
             'site_facebook' => 'https://www.facebook.com/',

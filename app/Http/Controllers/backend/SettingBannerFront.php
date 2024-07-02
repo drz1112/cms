@@ -25,8 +25,8 @@ class SettingBannerFront extends Controller
                     'text_link_video_color' =>'#FFFFFF',
                     'hubungi_kami' =>'6281392236479',
                     'hubungi_kami_text' =>'Assalamualaikum Warahmatullahi Wabarakatuh, Admin Prodi TI',
-                    'image_banner_1' =>'img/banner-1800-720.webp',
-                    'image_banner_2' =>'img/banner-1800-720-(2).webp',
+                    'image_banner_1' =>'img/default-banner-1800-720-(1).webp',
+                    'image_banner_2' =>'img/default-banner-1800-720-(2).webp',
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ]
@@ -34,7 +34,7 @@ class SettingBannerFront extends Controller
             return redirect()->route('settingsbannerfront.index')->with('success', 'Update was successful!');
         } else {
             $data = [
-                'post_website' => SettingWebsiteM::first(),
+                'settingweb' => SettingWebsiteM::first(),
                 'post_banner_front' => SettingBannerFrontM::first(),
                 ];
                 return view('backend/page/settingbannerfront.home', $data);
@@ -134,8 +134,8 @@ class SettingBannerFront extends Controller
             'text_link_video_color' =>'#FFFFFF',
             'hubungi_kami' =>'6281392236479',
             'hubungi_kami_text' =>'Assalamualaikum Warahmatullahi Wabarakatuh, Admin Prodi TI',
-            'image_banner_1' =>'img/banner-1800-720.webp',
-            'image_banner_2' =>'img/banner-1800-720-(2).webp',
+            'image_banner_1' =>'img/default-banner-1800-720-(1).webp',
+            'image_banner_2' =>'img/default-banner-1800-720-(2).webp',
         ];
         SettingBannerFrontM::first()->update($inputdata);
         return redirect()->route('settingsbannerfront.index')->with('success', 'Update was successful!');

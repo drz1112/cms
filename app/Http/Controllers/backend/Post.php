@@ -74,14 +74,14 @@ class Post extends Controller
             ->rawColumns(['visible','action','updated_at'])
             ->make(true);
         }
-        $data2 = ['post_website' => SettingWebsiteM::first()];
+        $data2 = ['settingweb' => SettingWebsiteM::first()];
         return view('backend/page/post.home', $data2);
     }
     public function add(Request $request)
     {
         $data = [
             'category' => KategoriM::where('type', 'article')->get(),
-            'post_website' => SettingWebsiteM::first()
+            'settingweb' => SettingWebsiteM::first()
         ];
         return view('backend/page/post.add', $data);
     }
@@ -151,7 +151,7 @@ class Post extends Controller
             ->where('post_slug', $request->post_slug)
             ->first();
         $category = KategoriM::where('type', 'article')->get();
-        $post_website = SettingWebsiteM::first();
+        $settingweb = SettingWebsiteM::first();
         preg_match_all('@<img.*src="([^"]*)"[^>/]*/?>@Ui', $post->post_content, $out);
             for ($i=0; $i < count($out[1]); $i++) { 
                 DB::table('fileuploadmanager')->insert([
@@ -163,7 +163,7 @@ class Post extends Controller
                 ]);
             }
 
-        return view('backend/page/post.edit', compact('post', 'category', 'post_website'));
+        return view('backend/page/post.edit', compact('post', 'category', 'settingweb'));
     }
     public function update(Request $request)
     {

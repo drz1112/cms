@@ -2,7 +2,7 @@
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="{{route('backhome.index')}}">
             <span class="align-middle">
-                <img src="{{asset('/'.$post_website->site_Image_dashboard)}}" alt="" style="max-height: 100%; max-width: 250px;">
+                <img src="{{asset('/'.$settingweb->site_Image_dashboard)}}" alt="" style="max-height: 100%; max-width: 250px;">
             </span>
         </a>
 
