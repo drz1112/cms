@@ -1,7 +1,7 @@
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section">
 
-        <img src="{{asset('img/testimonials-bg1.jpg')}}" class="testimonials-bg" alt="">
+        <img src="{{asset('/'.$settingbannerfront->image_banner_2)}}" class="testimonials-bg" alt="">
   
         <div class="container" data-aos="fade-up" data-aos-delay="100">
   

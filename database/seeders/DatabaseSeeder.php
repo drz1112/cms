@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(KategoriSeeder::class);
         $this->call(SitesettingSeeder::class);
         $this->call(SettingFrontSeed::class);
+        $this->call(SettingBannerFrontSeed::class);
     }
 }
