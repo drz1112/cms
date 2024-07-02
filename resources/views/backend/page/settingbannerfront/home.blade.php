@@ -41,7 +41,6 @@
                                 @enderror
                               </div>
                             </div>
-
                             <div class="row">
                               <div class="mb-3 col-md-1">
                                 <label for="text_2_color" class="form-label">Teks 2 Color</label>
@@ -62,7 +61,6 @@
                                 @enderror
                               </div>
                             </div>
-
                             <div class="row">
                               <div class="mb-3 col-md-1">
                                 <label for="text_3_color" class="form-label">Teks 3 Color</label>
@@ -83,8 +81,6 @@
                                 @enderror
                               </div>
                             </div>
-
-
                             <div class="row">
                               <div class="mb-3 col-md-4">
                                 <label for="firstName" class="form-label">Nomor Hubungi Kami</label>
@@ -134,7 +130,6 @@
                                 @enderror
                               </div>
                             </div>
-
                             <div class="mb-3 col-md-12">
                                 <label for="firstName" class="form-label">
                                     Image Banner 1

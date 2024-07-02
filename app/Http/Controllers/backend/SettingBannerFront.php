@@ -11,11 +11,35 @@ use Illuminate\Support\Facades\File;
 class SettingBannerFront extends Controller
 {
     public function index(){
-        $data = [
-            'post_website' => SettingWebsiteM::first(),
-            'post_banner_front' => SettingBannerFrontM::first(),
-        ];
-        return view('backend/page/settingbannerfront.home', $data);
+        if (SettingBannerFrontM::count() == 0) {
+            SettingBannerFrontM::insert([
+                [
+                    'text_1' =>'S1',
+                    'text_1_color' =>'#FFFFFF',
+                    'text_2' =>'Teknologi Informasi',
+                    'text_2_color' =>'#085284',
+                    'text_3' =>'Universitas Muhammadiyah Klaten',
+                    'text_3_color' =>'#FFFFFF',
+                    'link_video' =>'https://www.youtube.com/watch?v=uZ29bL2Jt_c',
+                    'text_link_video' =>'UMKLA',
+                    'text_link_video_color' =>'#FFFFFF',
+                    'hubungi_kami' =>'6281392236479',
+                    'hubungi_kami_text' =>'Assalamualaikum Warahmatullahi Wabarakatuh, Admin Prodi TI',
+                    'image_banner_1' =>'img/banner-1800-720.webp',
+                    'image_banner_2' =>'img/banner-1800-720-(2).webp',
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ]
+            ]);
+            return redirect()->route('settingsbannerfront.index')->with('success', 'Update was successful!');
+        } else {
+            $data = [
+                'post_website' => SettingWebsiteM::first(),
+                'post_banner_front' => SettingBannerFrontM::first(),
+                ];
+                return view('backend/page/settingbannerfront.home', $data);
+        }
+        
     }
 
     public function update(Request $request)
@@ -96,7 +120,7 @@ class SettingBannerFront extends Controller
         SettingBannerFrontM::first()->update($inputdata);
         return redirect()->route('settingsbannerfront.index')->with('success', 'Update was successful!');
     }
-    public function updatedefault(Request $request) {
+    public function updatedefault() {
 
         $inputdata = [
             'text_1' =>'S1',
@@ -108,7 +132,7 @@ class SettingBannerFront extends Controller
             'link_video' =>'https://www.youtube.com/watch?v=uZ29bL2Jt_c',
             'text_link_video' =>'UMKLA',
             'text_link_video_color' =>'#FFFFFF',
-            'hubungi_kami' =>'081392236479',
+            'hubungi_kami' =>'6281392236479',
             'hubungi_kami_text' =>'Assalamualaikum Warahmatullahi Wabarakatuh, Admin Prodi TI',
             'image_banner_1' =>'img/banner-1800-720.webp',
             'image_banner_2' =>'img/banner-1800-720-(2).webp',

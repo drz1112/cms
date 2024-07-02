@@ -25,7 +25,7 @@ class SettingBannerFrontSeed extends Seeder
                 'link_video' =>'https://www.youtube.com/watch?v=uZ29bL2Jt_c',
                 'text_link_video' =>'UMKLA',
                 'text_link_video_color' =>'#FFFFFF',
-                'hubungi_kami' =>'081392236479',
+                'hubungi_kami' =>'6281392236479',
                 'hubungi_kami_text' =>'Assalamualaikum Warahmatullahi Wabarakatuh, Admin Prodi TI',
                 'image_banner_1' =>'img/banner-1800-720.webp',
                 'image_banner_2' =>'img/banner-1800-720-(2).webp',
