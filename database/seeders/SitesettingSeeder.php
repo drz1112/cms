@@ -21,9 +21,9 @@ class SitesettingSeeder extends Seeder
                 'site_description' => 'CMS TI UMKLA',
                 'site_Image_favicon' => 'img/favicon.png',
                 'site_Image_navbar' => 'img/Logo-MDMC-Putih.png',
-                'site_Image_footer' => 'img/Logo-MDMC-Klaten.png',
+                'site_Image_footer' => 'img/Logo-footer-default.png',
                 'site_Image_login' => 'img/Logo-login-default.png',
-                'site_Image_dashboard' => 'img/Logo-MDMC-Klaten.png',
+                'site_Image_dashboard' => 'img/Logo-dashboard-default.webp',
 
                 'site_twitter' => 'https://twitter.com/',
                 'site_facebook' => 'https://www.facebook.com/',
