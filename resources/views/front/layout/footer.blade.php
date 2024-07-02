@@ -4,7 +4,7 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="d-flex align-items-center">
-            <img src="{{asset('/'.$settingweb->site_Image_footer)}}" alt="" style="max-height: 50px; margin-right: 8px;">
+            <img src="{{asset('/img/Umkla-TI-2.webp')}}" alt="" style="max-height: 50px; margin-right: 8px;">
           </a>
           <div class="footer-contact pt-3">
             <p>{{ $settingweb->site_contact_address }}</p>
