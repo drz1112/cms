@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\Login;
 use App\Http\Controllers\backend\Pages;
 use App\Http\Controllers\backend\Post;
 use App\Http\Controllers\backend\SettingBannerFront;
+use App\Http\Controllers\backend\SettingBoxs;
 use App\Http\Controllers\backend\SettingFront;
 use App\Http\Controllers\backend\SettingWebsite;
 use App\Http\Controllers\front\Home as FrontHome;
@@ -46,6 +47,11 @@ Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindash
         Route::get('/home', [SettingBannerFront::class, 'index'])->name('settingsbannerfront.index');
         Route::put('/update', [SettingBannerFront::class, 'update'])->name('settingsbannerfront.update');
         Route::put('/updatedefault', [SettingBannerFront::class, 'updatedefault'])->name('settingsbannerfront.updatedefault');
+    });
+    Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access'], 'prefix' => '/setting-boxs'], function () {
+        Route::get('/home', [SettingBoxs::class, 'index'])->name('settingboxs.index');
+        Route::put('/update', [SettingBoxs::class, 'update'])->name('settingboxs.update');
+        Route::put('/updatedefault', [SettingBoxs::class, 'updatedefault'])->name('settingboxs.updatedefault');
     });
 
     Route::group(['middleware' => ['auth','permission:alldashboard.access|admindashboard.access'], 'prefix' => '/pages'], function () {
