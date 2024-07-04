@@ -17,8 +17,8 @@ class ClientSeeder extends Seeder
         DB::table('clients')->insert([
             [
                 'clients_logos' => 'img/clients/default-client-1.png',
-                'clients_name' => 'CMS TI UMKLA',
-                'clients_description' => 'CMS TI UMKLA',
+                'clients_name' => 'CMS TI UMKLA Name',
+                'clients_description' => 'CMS TI UMKLA Deskripsi',
                 'clients_link' => 'https://ti.umkla.ac.id/',
                 'client_status' => '1',
                 'created_at' => date('Y-m-d H:i:s'),

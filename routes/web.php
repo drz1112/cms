@@ -62,7 +62,6 @@ Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindash
         Route::get('/{id}/edit', [Clients::class, 'edit'])->name('settingclients.edit');
         Route::put('/{id}', [Clients::class, 'update'])->name('settingclients.update');
         Route::put('/{id}/updatestat', [Clients::class, 'updatestat'])->name('settingclients.updatestat');
-        Route::put('/{id}/updateprotect', [Clients::class, 'updateprotect'])->name('settingclients.updateprotect');
         Route::delete('/{id}', [Clients::class, 'destroy'])->name('settingclients.destroy');
     });
 

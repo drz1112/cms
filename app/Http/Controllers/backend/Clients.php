@@ -24,9 +24,9 @@ class Clients extends Controller
             ->addColumn('updated_at', function($row) {
                 return $row->updated_at->diffForHumans();
             })
-            ->addColumn('public', function($row){
+            ->editColumn('clients_status', function($row){
                 if ($row->client_status == '1') {
-                    $pub = '<form action="'.route('settingclients.updateprotect',[$row->id]).'" method="POST">
+                    $pub = '<form action="'.route('settingclients.updatestat',[$row->id]).'" method="POST">
                     '.csrf_field().'
                     '.method_field("PUT").'
                     <div class="d-flex justify-content-center">
@@ -35,7 +35,7 @@ class Clients extends Controller
                         </div>
                     </form>';
                 } else {
-                    $pub = '<form action="'.route('settingclients.updateprotect',[$row->id]).'" method="POST">
+                    $pub = '<form action="'.route('settingclients.updatestat',[$row->id]).'" method="POST">
                     '.csrf_field().'
                     '.method_field("PUT").'
                     <div class="d-flex justify-content-center">
@@ -67,7 +67,7 @@ class Clients extends Controller
 
                 return $act;
             })
-            ->rawColumns(['public','action','updated_at'])
+            ->rawColumns(['clients_status','action','updated_at'])
             ->make(true);
         }
         $data = [
@@ -83,9 +83,8 @@ class Clients extends Controller
     }
     public function update(Request $request){
     }
-    public function updateprotect(Request $request){
-    }
     public function updatestat(Request $request){
+        dd($request->id);
     }
     public function destroy(){
     }

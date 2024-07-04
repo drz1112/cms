@@ -18,11 +18,11 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Name</th>
-                                <th>Logo</th>
+                                <th>Client</th>
                                 <th>Deskripsi</th>
+                                <th>Logo</th>
                                 <th>Link</th>
-                                <th>Public</th>
+                                <th>Visible</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -48,9 +48,10 @@
               {data: 'id', name: 'id'},
               {data: 'clients_name', name: 'clients_name'},
               {data: 'clients_description', name: 'clients_description'},
+              {data: 'clients_logos', name: 'clients_logos'},
               {data: 'clients_link', name: 'clients_link'},
-              {data: 'updated_at', name: 'updated_at'},
-              {data: 'public', name: 'public', orderable: false, searchable: false},
+              {data: 'clients_status', name: 'clients_status'},
+            //   {data: 'public', name: 'public', orderable: false, searchable: false},
               {data: 'action', name: 'action', orderable: false, searchable: false},
           ]
       });
