@@ -22,7 +22,7 @@
                                 <th>Deskripsi</th>
                                 <th>Logo</th>
                                 <th>Link</th>
-                                <th>Visible</th>
+                                <th class="d-flex justify-content-center">Visible</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -48,9 +48,9 @@
               {data: 'id', name: 'id'},
               {data: 'clients_name', name: 'clients_name'},
               {data: 'clients_description', name: 'clients_description'},
-              {data: 'clients_logos', name: 'clients_logos'},
-              {data: 'clients_link', name: 'clients_link'},
-              {data: 'clients_status', name: 'clients_status'},
+              {data: 'clients_logos', name: 'clients_logos', orderable: false, searchable: false},
+              {data: 'clients_link', name: 'clients_link', orderable: false, searchable: false},
+              {data: 'clients_status', name: 'clients_status', orderable: false, searchable: false},
             //   {data: 'public', name: 'public', orderable: false, searchable: false},
               {data: 'action', name: 'action', orderable: false, searchable: false},
           ]

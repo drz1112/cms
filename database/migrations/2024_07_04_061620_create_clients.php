@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('clients_name');
             $table->longText('clients_description');
             $table->longText('clients_link');
-            $table->enum('client_status', ['0','1']);
+            $table->enum('clients_status', ['0','1']);
             $table->timestamps();
             $table->softDeletes();
         });
