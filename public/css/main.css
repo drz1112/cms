@@ -112,7 +112,7 @@ h6 {
 }
 
 .header .branding {
-  background-color: var(--main-color);
+  background-color: var(--nav-color);
   min-height: 60px;
   padding: 10px 0;
 }
@@ -194,7 +194,7 @@ h6 {
   .navmenu li:hover>a,
   .navmenu .active,
   .navmenu .active:focus {
-    color: var(--contrast-color);
+    color: var(--nav-hover-color);
   }
 
   .navmenu .dropdown ul {

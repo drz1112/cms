@@ -94,7 +94,7 @@
                                     @enderror
                                 </div>
                                 <div class="row">
-                                    <div class="mb-3 col-md-1">
+                                    <div class="mb-3 col-md-2">
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" {{($post_boxs->status_box_1 == '1' ? 'checked' : '') }} name="status_box_1">
                                         <label class="form-check-label" for="flexSwitchCheckChecked">Tampil Box 1</label>
                                         @error('status_box_1')
@@ -103,7 +103,7 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="mb-3 col-md-1">
+                                    <div class="mb-3 col-md-2">
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" {{($post_boxs->status_box_2 == '1' ? 'checked' : '') }} name="status_box_2">
                                         <label class="form-check-label" for="flexSwitchCheckChecked">Tampil Box 2</label>
                                         @error('status_box_2')
@@ -112,7 +112,7 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="mb-3 col-md-1">
+                                    <div class="mb-3 col-md-2">
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" {{($post_boxs->status_box_3 == '1' ? 'checked' : '') }} name="status_box_3">
                                         <label class="form-check-label" for="flexSwitchCheckChecked">Tampil Box 3</label>
                                         @error('status_box_3')
@@ -121,7 +121,7 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="mb-3 col-md-1">
+                                    <div class="mb-3 col-md-2">
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" {{($post_boxs->status_box_4 == '1' ? 'checked' : '') }} name="status_box_4">
                                         <label class="form-check-label" for="flexSwitchCheckChecked">Tampil Box 4</label>
                                         @error('status_box_4')
