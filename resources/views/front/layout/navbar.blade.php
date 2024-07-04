@@ -18,7 +18,7 @@
     <div class="branding d-flex align-items-center">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="{{route('FrontHome.index')}}" class="logo d-flex align-items-center">
             <img src="{{asset('/'.$settingweb->site_Image_navbar)}}" alt="" class="img img-fluid">
         </a>
 

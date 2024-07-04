@@ -5,6 +5,7 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\backend\BoxM;
 use App\Models\backend\ClientsM;
+use App\Models\backend\ProfilSingkatM;
 use App\Models\backend\SettingBannerFrontM;
 use App\Models\backend\SettingFrontM;
 use App\Models\backend\SettingWebsiteM;
@@ -20,6 +21,7 @@ class Home extends Controller
             'settingbannerfront' => SettingBannerFrontM::first(),
             'settingboxs' => BoxM::first(),
             'settingclients' => ClientsM::where('clients_status', '1')->get(),
+            'post_profilsingkat' => ProfilSingkatM::first(),
             'categories' => KategoriM::with('children')->where('parentid', 0)->where('menustatus', 1)->get(),
         ];
         return view('front/page.index', $data);

@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\KategoriMenu;
 use App\Http\Controllers\backend\Login;
 use App\Http\Controllers\backend\Pages;
 use App\Http\Controllers\backend\Post;
+use App\Http\Controllers\backend\ProfilSingkat;
 use App\Http\Controllers\backend\SettingBannerFront;
 use App\Http\Controllers\backend\SettingBoxs;
 use App\Http\Controllers\backend\SettingFront;
@@ -63,6 +64,11 @@ Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindash
         Route::put('/{id}', [Clients::class, 'update'])->name('settingclients.update');
         Route::put('/{id}/updatestat', [Clients::class, 'updatestat'])->name('settingclients.updatestat');
         Route::delete('/{id}', [Clients::class, 'destroy'])->name('settingclients.destroy');
+    });
+
+    Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access'], 'prefix' => '/setting-profil-singkat'], function () {
+        Route::get('/home', [ProfilSingkat::class, 'index'])->name('profilsingkat.index');
+        Route::put('/update', [ProfilSingkat::class, 'update'])->name('profilsingkat.update');
     });
 
     Route::group(['middleware' => ['auth','permission:alldashboard.access|admindashboard.access'], 'prefix' => '/pages'], function () {

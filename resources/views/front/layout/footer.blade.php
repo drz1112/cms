@@ -3,7 +3,7 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="d-flex align-items-center">
+          <a href="{{route('FrontHome.index')}}" class="d-flex align-items-center">
             <img src="{{asset('/'.$settingweb->site_Image_footer)}}" style="max-width: 70%;" class="img img-fluid">
           </a>
           <div class="footer-contact pt-3">

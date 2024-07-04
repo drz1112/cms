@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingBannerFrontSeed::class);
         $this->call(BoxSeeder::class);
         $this->call(ClientSeeder::class);
+        $this->call(ProfilSingkatSeeder::class);
     }
 }
