@@ -6,11 +6,8 @@
           <h2>Portfolio</h2>
           <p><span>Check Our&nbsp;</span> <span class="description-title">Portfolio</span></p>
         </div><!-- End Section Title -->
-  
         <div class="container">
-  
           <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-  
             <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
               <li data-filter="*" class="filter-active">All</li>
               <li data-filter=".filter-app">App</li>
