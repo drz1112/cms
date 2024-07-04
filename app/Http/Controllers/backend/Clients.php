@@ -28,26 +28,27 @@ class Clients extends Controller
             ->editColumn('clients_logos', function($row) {
                 $logo = '
                 <div class="input-group">
-                    <button id="btnimgpreview" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalCenter">
+                    <button id="btnimgpreview" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalCenter'.$row->id.'">
                     <i class="fas fa-fw fa-eye"></i> Logo
                     </button>
-                    <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+                    <div class="modal fade" id="modalCenter'.$row->id.'" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalCenterTitle">Preview Image Login</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                            </button>
-                            </div>
-                            <div class="modal-body" style="background-color: lightgray;">
-                                <div class="row">
-                                <img class="img-preview img-fluid " src="'.asset('/'.$row->clients_logos).'">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalCenterTitle">Preview Image Login</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                </button>
+                                </div>
+                                <div class="modal-body" style="background-color: lightgray;">
+                                    <div class="row">
+                                    <img class="img-preview img-fluid " src="'.asset('/'.$row->clients_logos).'">
+                                    </div>
                                 </div>
                             </div>
-                            </div>
                         </div>
                         </div>
-                </div>';
+                </div>
+                ';
                 return $logo;
             })
             ->editColumn('clients_link', function($row) {
@@ -98,7 +99,7 @@ class Clients extends Controller
 
                 return $act;
             })
-            ->rawColumns(['clients_status','clients_logos','clients_link','action','updated_at'])
+            ->rawColumns(['clients_name','clients_description','clients_logos','clients_link','clients_status','action'])
             ->make(true);
         }
         $data = [
@@ -106,9 +107,36 @@ class Clients extends Controller
         ];
         return view('backend/page/clients.home', $data);
     }
-    public function add(Request $request){
+    public function add(){
+        $data = [
+            'settingweb' => SettingWebsiteM::first(),
+        ];
+        return view('backend/page/clients.add', $data);
     }
     public function store(Request $request){
+        $request->validate([
+            'clients_status' => 'required|in:0,1',
+            'clients_name' => 'required|max:255',
+            'clients_link' => 'required|max:255',
+            'clients_description' => 'required',
+            'clients_logos' => 'required|image|mimes:png,jpeg,jpg,webp|max:2048|dimensions:min-width=450,min-height=70',
+        ]);
+        $originName = $request->file('clients_logos')->getClientOriginalName();
+        $fileName = pathinfo($originName, PATHINFO_FILENAME);
+        $extension = $request->file('clients_logos')->getClientOriginalExtension();
+        $fileName = $fileName.'_'.time().'.'.$extension;
+        $request->file('clients_logos')->move(public_path('img/clients'), $fileName);
+        $url_clients_logos = ('img/clients/'.$fileName);
+        $inputdata = [
+            'clients_status' => $request->clients_status,
+            'clients_name' => $request->clients_name,
+            'clients_link' => $request->clients_link,
+            'clients_description' => $request->clients_description,
+            'clients_logos' => $url_clients_logos,
+
+        ];
+        ClientsM::create($inputdata);
+        return redirect()->route('settingclients.index')->with('success', 'Save was successful!');
     }
     public function edit(Request $request){
         $data = [
@@ -118,7 +146,6 @@ class Clients extends Controller
         return view('backend/page/clients.edit', $data);
     }
     public function update(Request $request){
-        // dd($request->all());
         $check = ClientsM::first();
         $request->validate([
             'clients_status' => 'required|in:0,1',
@@ -128,8 +155,8 @@ class Clients extends Controller
             'clients_logos' => 'image|mimes:png,jpeg,jpg,webp|max:2048|dimensions:min-width=450,min-height=70',
         ]);
         if($request->hasFile('clients_logos')) {
-            if ($check->site_Image_dashboard) {
-                $image_path = public_path("\\") .$check->site_Image_dashboard;
+            if ($check->clients_logos) {
+                $image_path = public_path("\\") .$check->clients_logos;
                 if(File::exists($image_path)) {
                     File::delete($image_path);
                 }
@@ -167,6 +194,16 @@ class Clients extends Controller
         return redirect()->route('settingclients.index')->with('success', 'Edit Client Status was successful!');
        
     }
-    public function destroy(){
+    public function destroy(Request $request){
+        // dd($request->id);
+        $client = ClientsM::where('id', '=', $request->id);
+        // $cek = $client->first();
+        $image_path = public_path("\\") .$client->first()->clients_logos;
+
+        $client->delete();
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        return redirect()->route('settingclients.index')->with('success', 'Delete client was successful!');
     }
 }

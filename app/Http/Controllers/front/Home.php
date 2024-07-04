@@ -19,7 +19,7 @@ class Home extends Controller
             'settingfront' => SettingFrontM::first(),
             'settingbannerfront' => SettingBannerFrontM::first(),
             'settingboxs' => BoxM::first(),
-            'settingclients' => ClientsM::get(),
+            'settingclients' => ClientsM::where('clients_status', '1')->get(),
             'categories' => KategoriM::with('children')->where('parentid', 0)->where('menustatus', 1)->get(),
         ];
         return view('front/page.index', $data);
