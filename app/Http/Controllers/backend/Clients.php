@@ -195,9 +195,7 @@ class Clients extends Controller
        
     }
     public function destroy(Request $request){
-        // dd($request->id);
         $client = ClientsM::where('id', '=', $request->id);
-        // $cek = $client->first();
         $image_path = public_path("\\") .$client->first()->clients_logos;
 
         $client->delete();
