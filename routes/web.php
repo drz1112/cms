@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\backend\Clients;
 use App\Http\Controllers\backend\Home as BackHome;
 use App\Http\Controllers\backend\KategoriMenu;
 use App\Http\Controllers\backend\Login;
@@ -52,6 +53,17 @@ Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindash
         Route::get('/home', [SettingBoxs::class, 'index'])->name('settingboxs.index');
         Route::put('/update', [SettingBoxs::class, 'update'])->name('settingboxs.update');
         Route::put('/updatedefault', [SettingBoxs::class, 'updatedefault'])->name('settingboxs.updatedefault');
+    });
+
+    Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access'], 'prefix' => '/setting-clients'], function () {
+        Route::get('/home', [Clients::class, 'index'])->name('settingclients.index');
+        Route::get('/add', [Clients::class, 'add'])->name('settingclients.add');
+        Route::post('/store', [Clients::class, 'store'])->name('settingclients.store');
+        Route::get('/{id}/edit', [Clients::class, 'edit'])->name('settingclients.edit');
+        Route::put('/{id}', [Clients::class, 'update'])->name('settingclients.update');
+        Route::put('/{id}/updatestat', [Clients::class, 'updatestat'])->name('settingclients.updatestat');
+        Route::put('/{id}/updateprotect', [Clients::class, 'updateprotect'])->name('settingclients.updateprotect');
+        Route::delete('/{id}', [Clients::class, 'destroy'])->name('settingclients.destroy');
     });
 
     Route::group(['middleware' => ['auth','permission:alldashboard.access|admindashboard.access'], 'prefix' => '/pages'], function () {
