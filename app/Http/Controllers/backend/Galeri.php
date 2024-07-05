@@ -130,7 +130,6 @@ class Galeri extends Controller
         GaleriM::create($inputdata);
         return redirect()->route('galeri.index')->with('success', 'Save was successful!');
     }
-
     public function updatestat(Request $request){
         $cek = GaleriM::where('id', $request->id)->first();
         if ($cek->galeri_status == '1') {
@@ -184,6 +183,17 @@ class Galeri extends Controller
         GaleriM::first()->update($inputdata);
         return redirect()->route('galeri.index')->with('success', 'Update was successful!');
     }
+    public function destroy(Request $request){
+        $galeri = GaleriM::where('id', '=', $request->id);
+        $image_path = public_path("\\") .$galeri->first()->galeri_gambar;
+
+        $galeri->delete();
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        return redirect()->route('galeri.index')->with('success', 'Delete client was successful!');
+    }
+
 
 
 }
