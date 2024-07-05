@@ -5,20 +5,18 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">Edit Client</h5>
+                    <h5 class="card-title mb-0">Tambah Team</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('settingclients.store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('team.store')}}" method="POST" enctype="multipart/form-data">
                         @method('post')
                         @csrf
+
                         <div class=" mb-3">
-                            <label class="col-sm-2 col-form-label text-dark">Client Status</label>
+                            <label class="col-sm-2 col-form-label text-dark">Nama</label>
                             <div class="col-sm-12">
-                                <select class="form-control form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="clients_status">
-                                    <option value="1">Publish</option>
-                                    <option value="0">Draft</option>
-                                </select>
-                                @error('clients_status')
+                                <input name="team_Nama" type="text" class="form-control @error('team_Nama') is-invalid @enderror" placeholder="Input" required>
+                                @error('team_Nama')
                                     <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                         {{ $message}}
                                     </div>
@@ -26,10 +24,10 @@
                             </div>
                         </div>
                         <div class=" mb-3">
-                            <label class="col-sm-2 col-form-label text-dark">Client Name</label>
+                            <label class="col-sm-2 col-form-label text-dark">Jabatan</label>
                             <div class="col-sm-12">
-                                <input name="clients_name" type="text" class="form-control @error('clients_name') is-invalid @enderror" placeholder="Input" required>
-                                @error('clients_name')
+                                <input name="team_Jabatan" type="text" class="form-control @error('team_Jabatan') is-invalid @enderror" placeholder="Input" required>
+                                @error('team_Jabatan')
                                     <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                         {{ $message}}
                                     </div>
@@ -37,10 +35,10 @@
                             </div>
                         </div>
                         <div class=" mb-3">
-                            <label class="col-sm-2 col-form-label text-dark">Client Link</label>
+                            <label class="col-sm-2 col-form-label text-dark">Twitter</label>
                             <div class="col-sm-12">
-                                <input name="clients_link" type="text" class="form-control @error('clients_link') is-invalid @enderror" placeholder="Input" required>
-                                @error('clients_link')
+                                <input name="team_twitter_link" type="text" class="form-control @error('team_twitter_link') is-invalid @enderror" placeholder="https://x.com/" required>
+                                @error('team_twitter_link')
                                     <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                         {{ $message}}
                                     </div>
@@ -48,10 +46,10 @@
                             </div>
                         </div>
                         <div class=" mb-3">
-                            <label class="col-sm-2 col-form-label text-dark">Client Deskripsi</label>
+                            <label class="col-sm-2 col-form-label text-dark">Facebook</label>
                             <div class="col-sm-12">
-                                <textarea class="form-control" name="clients_description" id="" rows="5" required></textarea>
-                                @error('clients_description')
+                                <input name="team_facebook_link" type="text" class="form-control @error('team_facebook_link') is-invalid @enderror" placeholder="https://www.facebook.com/" required>
+                                @error('team_facebook_link')
                                     <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                         {{ $message}}
                                     </div>
@@ -59,13 +57,24 @@
                             </div>
                         </div>
                         <div class=" mb-3">
-                            <label class="col-sm-2 col-form-label text-dark">Client Logo</label>
+                            <label class="col-sm-2 col-form-label text-dark">Instagram</label>
                             <div class="col-sm-12">
-                                <input class="form-control @error('clients_logos') is-invalid @enderror" type="file" id="clients_logos" name="clients_logos" required>
+                                <input name="team_ig_link" type="text" class="form-control @error('team_ig_link') is-invalid @enderror" placeholder="https://www.instagram.com/" required>
+                                @error('team_ig_link')
+                                    <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
+                                        {{ $message}}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class=" mb-3">
+                            <label class="col-sm-2 col-form-label text-dark">Team Foto</label>
+                            <div class="col-sm-12">
+                                <input class="form-control @error('team_Foto') is-invalid @enderror" type="file" id="team_Foto" name="team_Foto" required>
                                 <span style="color: #b02a37; font-size: .875em;">
-                                    ukuran min-width=400 min-height=70, ukuran max: 2MB
+                                    ukuran min-width=450 min-height=450, ukuran max: 2MB
                                 </span>
-                                @error('clients_logos')
+                                @error('team_Foto')
                                     <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
                                         {{ $message}}
                                     </div>
@@ -73,7 +82,7 @@
                             </div>
                         </div>
                         <div class="mt-3">
-                            <a href="{{route('settingclients.index')}}" class="btn btn-danger"> Cancel</a>
+                            <a href="{{route('team.index')}}" class="btn btn-danger"> Cancel</a>
                             <button type="submit" class="btn btn-primary me-2">Save changes</button>
                         </div>
                     </form>

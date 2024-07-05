@@ -62,6 +62,7 @@
                             </div>
                         </div>
                         <div class="mt-3">
+                            <a href="{{route('galeri.index')}}" class="btn btn-danger"> Cancel</a>
                             <button type="submit" class="btn btn-primary me-2">Save changes</button>
                         </div>
                     </form>

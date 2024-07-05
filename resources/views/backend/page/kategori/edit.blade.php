@@ -42,6 +42,7 @@
                 </div>
                 <div class="row justify-content-end mt-4">
                 <div class="col-sm-10">
+                    <a href="{{route('kategorimenu.index')}}" class="btn btn-danger"> Cancel</a>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
                 </div>

@@ -88,6 +88,7 @@
                     <div class="mb-3">
                         <div class="justify-content-end">
                             <div class="col-sm-12">
+                                <a href="{{route('pages.index')}}" class="btn btn-danger"> Cancel</a>
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </div>

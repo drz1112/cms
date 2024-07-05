@@ -69,6 +69,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10 text-right">
+                                    <a href="{{route('kategorimenu.index')}}" class="btn btn-danger"> Cancel</a>
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>
                             </div>
@@ -141,6 +142,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10 text-right">
+                                    <a href="{{route('kategorimenu.index')}}" class="btn btn-danger"> Cancel</a>
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>
                             </div>

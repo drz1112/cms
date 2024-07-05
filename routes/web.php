@@ -12,6 +12,7 @@ use App\Http\Controllers\backend\SettingBannerFront;
 use App\Http\Controllers\backend\SettingBoxs;
 use App\Http\Controllers\backend\SettingFront;
 use App\Http\Controllers\backend\SettingWebsite;
+use App\Http\Controllers\backend\Team;
 use App\Http\Controllers\front\Home as FrontHome;
 use Illuminate\Support\Facades\Route;
 
@@ -71,6 +72,15 @@ Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindash
     Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access'], 'prefix' => '/setting-profil-singkat'], function () {
         Route::get('/home', [ProfilSingkat::class, 'index'])->name('profilsingkat.index');
         Route::put('/update', [ProfilSingkat::class, 'update'])->name('profilsingkat.update');
+    });
+
+    Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access'], 'prefix' => '/setting-team'], function () {
+        Route::get('/home', [Team::class, 'index'])->name('team.index');
+        Route::get('/add', [Team::class, 'add'])->name('team.add');
+        Route::post('/store', [Team::class, 'store'])->name('team.store');
+        Route::get('/{id}/edit', [Team::class, 'edit'])->name('team.edit');
+        Route::put('/{id}', [Team::class, 'update'])->name('team.update');
+        Route::delete('/{id}', [Team::class, 'destroy'])->name('team.destroy');
     });
 
     Route::group(['middleware' => ['auth','permission:alldashboard.access|admindashboard.access'], 'prefix' => '/pages'], function () {
