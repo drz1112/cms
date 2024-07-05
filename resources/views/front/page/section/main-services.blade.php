@@ -9,12 +9,12 @@
   
         <div class="container">
   
-          <div class="row gy-4">
+          {{-- <div class="row gy-4">
   
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
               <div class="service-item position-relative">
-                <div class="icon">
-                  <i class="bi bi-activity"></i>
+                <div style="width: 300px; height:300px">
+                  <img src="{{asset($post_profilsingkat->profilsingkat_gambar)}}" alt="" class="img-fluid">
                 </div>
                 <a href="service-details.html" class="stretched-link">
                   <h3>Nesciunt Mete</h3>
@@ -86,8 +86,23 @@
               </div>
             </div><!-- End Service Item -->
   
+          </div> --}}
+          <div class="row g-4">
+            <div class="col-lg-3 wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
+              <div class="case-item position-relative overflow-hidden rounded mb-2">
+                  <div style="width: 300px; height:300px">
+                    <img class="img-fluid" src="https://lppm.umkla.id/thumbnail/Logo UMKLA Teratai Berwarna (3)_1702314868_1705702042_1706356563_1707307173_1707448972.png" alt="" style="max-width: 100%; max-height:100%">
+                  </div>
+                  <a class="case-overlay text-decoration-none" href="https://lppm.umkla.id/pengumuman-penerima-hibah-internal-2023-2024-batch-ii/posts">
+                      <small>09 February 2024</small>
+                      <span class="lh-base text-white mb-3">Pengumuman Penerima Hibah Internal 2023-2024 Batch II
+                      </span>
+                      <span class="btn btn-square btn-primary"><i class="bi bi-arrow-right"></i></span>
+                  </a>
+              </div>
+            </div>
+
           </div>
-  
         </div>
   
       </section><!-- /Services Section -->
