@@ -8,7 +8,6 @@
     @include('front/page/section.main-services')
     @include('front/page/section.main-testimonial')
     @include('front/page/section.main-portofolio')
-    @include('front/page/section.main-portofolio')
     @include('front/page/section.main-team')
     @include('front/page/section.main-price')
     @include('front/page/section.main-faq')

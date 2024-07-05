@@ -18,18 +18,21 @@
                 </a>
             </li>
             @hasanyrole('SuperAdmin|Admin')
-            <li class="sidebar-item {{ Request::routeIs('pages.*') ? 'active' : ''}}">
+            <li class="sidebar-item {{ Request::routeIs('pages.*')|| Request::routeIs('posting.*') || Request::routeIs('galeri.*') ? 'active' : ''}}">
                 <a data-bs-target="#menudrop1" data-bs-toggle="collapse" class="sidebar-link" aria-expanded="false">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layout align-middle"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
                     <span class="align-middle">Pages & Post</span>
                 </a>
-                <ul id="menudrop1" class="sidebar-dropdown list-unstyled collapse {{ Request::routeIs('pages.*') || Request::routeIs('posting.*') ? 'show' : ''}}" data-bs-parent="#sidebar"
+                <ul id="menudrop1" class="sidebar-dropdown list-unstyled collapse {{ Request::routeIs('pages.*') || Request::routeIs('posting.*') || Request::routeIs('galeri.*') ? 'show' : ''}}" data-bs-parent="#sidebar"
                     style="">
                     <li class="sidebar-item {{ Request::routeIs('pages.*') ? 'active' : ''}}">
                         <a class="sidebar-link" href="{{route('pages.index')}}">Pages</a>
                     </li>
                     <li class="sidebar-item {{ Request::routeIs('posting.*') ? 'active' : ''}}">
                         <a class="sidebar-link" href="{{route('posting.index')}}">Posts</a>
+                    </li>
+                    <li class="sidebar-item {{ Request::routeIs('galeri.*') ? 'active' : ''}}">
+                        <a class="sidebar-link" href="{{route('galeri.index')}}">Galeri</a>
                     </li>
                 </ul>
             </li>

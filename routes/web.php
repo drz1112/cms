@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\Clients;
+use App\Http\Controllers\backend\Galeri;
 use App\Http\Controllers\backend\Home as BackHome;
 use App\Http\Controllers\backend\KategoriMenu;
 use App\Http\Controllers\backend\Login;
@@ -15,6 +16,7 @@ use App\Http\Controllers\front\Home as FrontHome;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontHome::class, 'index'])->name('FrontHome.index');
+Route::get('/{post_slug}/posts', [FrontHome::class, 'detailposts'])->name('FrontHome.detailposts');
 
 Route::get('/cms-ti/login', [Login::class, 'login'])->name('login');
 Route::post('/cms-ti/authlogin', [Login::class, 'authlogin'])->name('ceklogin');
@@ -93,6 +95,16 @@ Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindash
         Route::put('/{id}/{post_slug}', [Post::class, 'update'])->name('posting.update');
         Route::put('/{id}/{post_slug}/updatestat', [Post::class, 'updatestat'])->name('posting.updatestat');
         Route::delete('/{id}/{post_slug}', [Post::class, 'destroy'])->name('posting.destroy');
+    });
+
+    Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access'], 'prefix' => '/galeri'], function () {
+        Route::get('/home', [Galeri::class, 'index'])->name('galeri.index');
+        Route::get('/add', [Galeri::class, 'add'])->name('galeri.add');
+        Route::post('/store', [Galeri::class, 'store'])->name('galeri.store');
+        Route::get('/{id}/edit', [Galeri::class, 'edit'])->name('galeri.edit');
+        Route::put('/{id}', [Galeri::class, 'update'])->name('galeri.update');
+        Route::put('/{id}/updatestat', [Galeri::class, 'updatestat'])->name('galeri.updatestat');
+        Route::delete('/{id}', [Galeri::class, 'destroy'])->name('galeri.destroy');
     });
 
 });
