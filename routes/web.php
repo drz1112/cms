@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\Clients;
+use App\Http\Controllers\backend\Faq;
 use App\Http\Controllers\backend\Galeri;
 use App\Http\Controllers\backend\Home as BackHome;
 use App\Http\Controllers\backend\KategoriMenu;
@@ -83,7 +84,17 @@ Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindash
         Route::delete('/{id}', [Team::class, 'destroy'])->name('team.destroy');
     });
 
-    Route::group(['middleware' => ['auth','permission:alldashboard.access|admindashboard.access'], 'prefix' => '/pages'], function () {
+    Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access'], 'prefix' => '/setting-faq'], function () {
+        Route::get('/home', [Faq::class, 'index'])->name('faq.index');
+        Route::get('/add', [Faq::class, 'add'])->name('faq.add');
+        Route::post('/store', [Faq::class, 'store'])->name('faq.store');
+        Route::get('/{id}/edit', [Faq::class, 'edit'])->name('faq.edit');
+        Route::put('/{id}', [Faq::class, 'update'])->name('faq.update');
+        Route::put('/{id}/updatestat', [Faq::class, 'updatestat'])->name('faq.updatestat');
+        Route::delete('/{id}', [Faq::class, 'destroy'])->name('faq.destroy');
+    });
+
+    Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access'], 'prefix' => '/pages'], function () {
         Route::post('/upload', [Pages::class, 'upload'])->name('ckeditor.image-upload');
         Route::get('/checkSlug', [Pages::class, 'checkSlug'])->name('pages.checkSlug');
         Route::get('/home', [Pages::class, 'index'])->name('pages.index');
@@ -116,5 +127,4 @@ Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindash
         Route::put('/{id}/updatestat', [Galeri::class, 'updatestat'])->name('galeri.updatestat');
         Route::delete('/{id}', [Galeri::class, 'destroy'])->name('galeri.destroy');
     });
-
 });
