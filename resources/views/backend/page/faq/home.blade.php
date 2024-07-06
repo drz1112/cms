@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Gallery Management
-                        <a class="btn btn-sm btn-info" href="{{ route('galeri.add') }}">
+                        <a class="btn btn-sm btn-info" href="{{ route('faq.add') }}">
                             <i class='fa fa-plus' ></i> Add NEW
                         </a>
                     </h4>

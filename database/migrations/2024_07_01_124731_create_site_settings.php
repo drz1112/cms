@@ -31,6 +31,7 @@ return new class extends Migration
             $table->string('site_contact_wa_content');
             $table->string('site_contact_tlp');
             $table->string('site_contact_address');
+            $table->longText('site_maps');
             $table->timestamps();
             $table->softDeletes();
         });

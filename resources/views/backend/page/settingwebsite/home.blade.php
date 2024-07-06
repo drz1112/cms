@@ -491,6 +491,15 @@
                                     
                                 
                                 </div>
+                                <div class="mb-3 col-md-12">
+                                  <label for="firstName" class="form-label">Maps Link</label>
+                                  <input class="form-control @error('site_maps') is-invalid @enderror" type="text" id="firstName" name="site_maps" value="{{ old('site_maps',$settingweb->site_maps) }}" >
+                                  @error('site_maps')
+                                      <div class="is-invalid" style="color: #b02a37; font-size: .875em;">
+                                          {{ $message}}
+                                      </div>
+                                  @enderror
+                                </div>
                             <div class="mt-2">
                                 <button type="submit" class="btn btn-primary me-2">Save changes</button>
                             </div>

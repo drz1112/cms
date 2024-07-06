@@ -64,7 +64,7 @@ class SettingFront extends Controller
             'main_color' => '#085284',
             'contrast_color' => '#ffffff',
             'nav_color' => '#085284',
-            'nav_hover_color' => '#222222',
+            'nav_hover_color' => '#ffffff',
             'nav_dropdown_background_color' => '#ffffff',
             'nav_dropdown_color' => '#222222',
             'nav_dropdown_hover_color' => '#085284',

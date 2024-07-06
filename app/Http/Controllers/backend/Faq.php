@@ -79,4 +79,53 @@ class Faq extends Controller
         FaqM::where('id', $request->id)->update($editdata);
         return redirect()->route('faq.index')->with('success', 'Edit FAQ Status was successful!');
     }
+
+    public function add(){
+        $data = [
+            'settingweb' => SettingWebsiteM::first(),
+        ];
+        return view('backend/page/faq.add', $data);
+    }
+
+    public function store(Request $request){
+        $request->validate([
+            'faq_status' => 'required|in:0,1',
+            'faq_pertanyaan' => 'required|max:255',
+            'faq_jawaban' => 'required|max:255',
+        ]);
+        $inputdata = [
+            'faq_status' => $request->faq_status,
+            'faq_pertanyaan' => $request->faq_pertanyaan,
+            'faq_jawaban' => $request->faq_jawaban,
+        ];
+        FaqM::create($inputdata);
+        return redirect()->route('faq.index')->with('success', 'Save was successful!');
+    }
+
+    public function edit(Request $request){
+        $data = [
+            'settingweb' => SettingWebsiteM::first(),
+            'post_faq' => FaqM::where('id', $request->id)->first()
+        ];
+        return view('backend/page/faq.edit', $data);
+    }
+    public function update(Request $request){
+        $request->validate([
+            'faq_status' => 'required|in:0,1',
+            'faq_pertanyaan' => 'required|max:255',
+            'faq_jawaban' => 'required|max:255',
+        ]);
+
+        $inputdata = [
+            'faq_status' => $request->faq_status,
+            'faq_pertanyaan' => $request->faq_pertanyaan,
+            'faq_jawaban' => $request->faq_jawaban,
+        ];
+        FaqM::first()->update($inputdata);
+        return redirect()->route('faq.index')->with('success', 'Update was successful!');
+    }
+    public function destroy(Request $request){
+        FaqM::where('id', '=', $request->id)->delete();
+        return redirect()->route('faq.index')->with('success', 'Delete faq was successful!');
+    }
 }
