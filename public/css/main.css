@@ -2036,3 +2036,23 @@ section,
 /* .starter-section { */
   /* Add your styles here */
 /* } */
+.page-item.active .page-link {
+  color: var(--contrast-color) !important;
+  background:var(--nav-color) !important;
+  border-color: var(--nav-color) !important;
+}
+.pagination > li > a {
+  color: var(--nav-color) !important;
+}
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
+  z-index: 3;
+  color:  var(--contrast-color) !important;
+  background-color: var(--nav-color) !important;
+}
+.title-artikel,
+.author-artikel{
+  color:  var(--main-color) !important;
+}

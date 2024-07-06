@@ -17,11 +17,11 @@
         <div div class="col-lg-8 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
             <div class="row">
                 <span>
-                    <i class="bi bi-calendar3"></i> {{ date('d-M-Y', strtotime( $post->created_at));}} - <i class="bi bi-person-check"></i> {{ $post->postauthor->name}}
+                    <i class="bi bi-calendar3 author-artikel"></i> <strong>{{ date('d-M-Y', strtotime( $post->created_at));}}</strong> - <i class="bi bi-person-check author-artikel"></i> <strong>{{ $post->postauthor->name}}</strong>
                 </span>
             </div>
             <div class="row p-1" style="text-align: center;">
-                <h1>{{ Str::title($post->post_title)}}</h1>
+                <h1 class="title-artikel"><strong>{{ Str::title($post->post_title)}}</strong></h1>
             </div>
             <div class="row" id="post_content">
                 {!!  html_entity_decode($post->post_content) !!}
@@ -96,13 +96,17 @@
                 </div>
                 <div class="col-10">
                     <div class="features-content d-flex flex-column">
-                    <h6>
-                        <a href="{{ route('FrontHome.detailposts', [$values_post_berita->post_slug])}}">{{Str::limit($values_post_berita->post_title,70)}}</a>
+                    <h6 class="author-artikel">
+                        <a href="{{ route('FrontHome.detailposts', [$values_post_berita->post_slug])}}">
+                            <strong>
+                                {{Str::title(Str::limit($values_post_berita->post_title,70))}}
+                            </strong>
+                        </a>
                     </h6>
                         <small>
-                            <i class="bi bi-calendar3"> </i> {{ date('d-M-Y', strtotime( $values_post_berita->created_at));  }} 
+                            <i class="bi bi-calendar3 author-artikel"> </i> <strong>{{ date('d-M-Y', strtotime( $values_post_berita->created_at));}}</strong> 
                             -
-                            <i class="bi bi-person-check"></i> {{ $values_post_berita->postauthor->name}}
+                            <i class="bi bi-person-check author-artikel"></i> <strong>{{ $values_post_berita->postauthor->name}}</strong>
                         </small>
                     </div>
                 </div>

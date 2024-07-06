@@ -7,6 +7,7 @@ use App\Models\backend\BoxM;
 use App\Models\backend\ClientsM;
 use App\Models\backend\FaqM;
 use App\Models\backend\GaleriM;
+use App\Models\backend\PagesM;
 use App\Models\backend\PostsM;
 use App\Models\backend\ProfilSingkatM;
 use App\Models\backend\SettingBannerFrontM;
@@ -77,5 +78,59 @@ class Home extends Controller
             return view('front/page.attachment',$data);
         }
         
+    }
+
+    public function singlepage(Request $request){
+        $checkTYPE = KategoriM::with('Pages')->where('slug',$request->post_slug)->first(); 
+        if (is_null($checkTYPE)){
+            return redirect('/');
+        };
+        if ($checkTYPE->type === 'page') {
+            if(is_null($checkTYPE->pages)) {
+                return redirect('/');
+              }else{
+                if ($checkTYPE->pages->pages_status === '0') {
+                    return redirect('/');
+                }else{
+                    $data = [
+                        'post' => PagesM::with('postingan')->where('pages_slug',$checkTYPE->pages->pages_slug)->first(),
+                        'categories' => KategoriM::with('children')->where('parentid',0)->get(),
+                        'settingweb' => SettingWebsiteM::first(),
+                        'settingfront' => SettingFrontM::first(),
+                        'settingclients' => ClientsM::where('clients_status', '1')->get(),
+                    ];
+                    return view('front/page.singlepage',$data);
+                }
+            }
+        }
+        if ($checkTYPE->type === 'article') {
+            $checkArticle = KategoriM::with(['postingans' => function ($query) {
+                $query->where('post_status', '1');
+                $query->orderbyDesc('id');
+            }])
+            ->where('slug',$request->post_slug)
+            ->first();
+            $ids = $checkArticle->id;
+            $postsM = PostsM::with('postingan')
+                            ->where('post_status', "1")
+                            ->where('post_category_id', $ids)
+                            ->orderbyDesc('id')
+                            ->paginate(1);
+            if($postsM->isNotEmpty()){
+                $data = [
+                    'titles' => $checkArticle->namaKate,
+                    'post' => $postsM,
+                    'categories' => KategoriM::with('children')->where('parentid',0)->get(),
+                    'settingweb' => SettingWebsiteM::first(),
+                    'settingfront' => SettingFrontM::first(),
+                    'settingclients' => ClientsM::where('clients_status', '1')->get(),
+                ];
+                return view('front/page.singlearticle',$data);
+            }else{
+                return redirect('/');
+            }
+        } else {
+            return redirect('/');
+        }  
     }
 }

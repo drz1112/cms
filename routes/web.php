@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontHome::class, 'index'])->name('FrontHome.index');
 Route::get('/{post_slug}/posts', [FrontHome::class, 'detailposts'])->name('FrontHome.detailposts');
+Route::get('/{post_slug}', [FrontHome::class, 'singlepage'])->name('FrontHome.single');
 
 Route::get('/cms-ti/login', [Login::class, 'login'])->name('login');
 Route::post('/cms-ti/authlogin', [Login::class, 'authlogin'])->name('ceklogin');

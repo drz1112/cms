@@ -1,7 +1,7 @@
     <section id="services" class="services section">
         <div class="container section-title" data-aos="fade-up">
-          <h2>Services</h2>
-          <p><span>Check Our</span> <span class="description-title">Services</span></p>
+          <h2>Berita</h2>
+          <p><span>Berita</span> <span class="description-title">Terbaru</span></p>
         </div>
         <div class="container">
           <div class="row g-4">
@@ -19,7 +19,6 @@
               </div>
             </div>
             @endforeach
-
             <div class="col-lg-12 text-center">
               <span>
                 @if (!is_null($post_url_infopage))
@@ -27,7 +26,6 @@
                   Lihat Info Lainnya <i class="bi bi-arrow-right"></i> 
                   </a>
                 @endif
-               
               </span>
             </div>
           </div>
