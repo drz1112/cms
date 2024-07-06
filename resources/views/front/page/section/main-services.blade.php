@@ -19,6 +19,17 @@
               </div>
             </div>
             @endforeach
+
+            <div class="col-lg-12 text-center">
+              <span>
+                @if (!is_null($post_url_infopage))
+                  <a href="{{ url($post_url_infopage->slug) }}">
+                  Lihat Info Lainnya <i class="bi bi-arrow-right"></i> 
+                  </a>
+                @endif
+               
+              </span>
+            </div>
           </div>
         </div>
         </div>

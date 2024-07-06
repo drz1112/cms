@@ -31,6 +31,7 @@ class Home extends Controller
             'post_berita' => PostsM::with('postingan')->where('post_category_id', '3')->where('post_status', 1)->orderByDesc('updated_at')->limit(4)->get(),
             'post_faq' => FaqM::where('faq_status', '1')->limit(5)->get(),
             'categories' => KategoriM::with('children')->where('parentid', 0)->where('menustatus', 1)->get(),
+            'post_url_infopage' => KategoriM::where('id','3')->where('menustatus',1)->first(),
         ];
         return view('front/page.index', $data);
     }
