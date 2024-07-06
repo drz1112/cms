@@ -34,7 +34,7 @@
                             @if (!empty($sebelumnya->post_slug))
                             <a href="{{ url($sebelumnya->post_slug.'/posts') }}">
                 
-                                <i class="fas fa-arrow-left fa-fw"></i>
+                                <i class="bi bi-chevron-left"></i>
                             Sebelumnya
                             </a>
                             @endif
@@ -84,17 +84,33 @@
             </div>
         </div>   
         <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-            <div class="services-list">
-              <a href="#" class="active">Web Design</a>
-              <a href="#">Software Development</a>
-              <a href="#">Product Management</a>
-              <a href="#">Graphic Design</a>
-              <a href="#">Marketing</a>
+            <h2 class="mt-2">Berita Terbaru</h2>
+            @foreach ($post_berita as $values_post_berita)
+            <div class="row mt-2" style="border-radius: 10px !important; background-color: #f4f6f8 !important; padding:3%;">
+            <div class="col-12">
+                <div class="row g-4 align-items-center">
+                <div class="col-2">
+                    <div class="overflow-hidden rounded">
+                        <img src="{{asset($values_post_berita->thumbnail)}}" class="img-zoomin img-fluid rounded w-100" alt="">
+                    </div>
+                </div>
+                <div class="col-10">
+                    <div class="features-content d-flex flex-column">
+                    <h6>
+                        <a href="{{ route('FrontHome.detailposts', [$values_post_berita->post_slug])}}">{{Str::limit($values_post_berita->post_title,70)}}</a>
+                    </h6>
+                        <small>
+                            <i class="bi bi-calendar3"> </i> {{ date('d-M-Y', strtotime( $values_post_berita->created_at));  }} 
+                            -
+                            <i class="bi bi-person-check"></i> {{ $values_post_berita->postauthor->name}}
+                        </small>
+                    </div>
+                </div>
+                </div>
             </div>
-
-            <h4>Enim qui eos rerum in delectus</h4>
-            <p>Nam voluptatem quasi numquam quas fugiat ex temporibus quo est. Quia aut quam quod facere ut non occaecati ut aut. Nesciunt mollitia illum tempore corrupti sed eum reiciendis. Maxime modi rerum.</p>
-          </div>   
+            </div>
+            @endforeach
+        </div>   
     </div>
     </div>
 </section>

@@ -66,7 +66,7 @@ class Home extends Controller
                 'sebelumnya' => $sebelumnya,
                 'selanjutnya' => $selanjutnya,
                 'post' => PostsM::with(['postingan','postauthor'])->where('post_slug', $request->post_slug)->where('post_status', '1')->first(),
-                'post_berita' => PostsM::with(['postingan','postauthor'])->where('post_status', '1')->where('post_category_id', '10')->orderByDesc('updated_at')->take(3)->get(),
+                'post_berita' => PostsM::with(['postingan','postauthor'])->where('post_status', '1')->where('post_category_id', '3')->orderByDesc('updated_at')->take(3)->get(),
                 'categories' => KategoriM::with('children')->where('parentid',0)->get(),
                 'settingweb' => SettingWebsiteM::first(),
                 'settingfront' => SettingFrontM::first(),
