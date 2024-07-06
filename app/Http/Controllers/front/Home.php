@@ -34,4 +34,47 @@ class Home extends Controller
         ];
         return view('front/page.index', $data);
     }
+    public function detailposts(Request $request)
+    {   
+        // return PostsM::with(['postingan','postauthor'])->where('post_slug', $request->post_slug)->where('post_status', '1')->first();
+        $check = PostsM::with('postingan')->where('post_slug', $request->post_slug)->first();
+        $previous = PostsM::where('id', '<', $check->id)
+                            ->where('post_category_id', $check->post_category_id)
+                            ->where('post_status', '1')
+                            ->max('id');
+        $next = PostsM::where('id', '>', $check->id)
+                            ->where('post_category_id', $check->post_category_id)
+                            ->where('post_status', '1')
+                            ->min('id');
+        
+        if (is_null($previous)) {
+            $sebelumnya = '';
+        } else {
+           $sebelumnya = PostsM::find($previous);
+        }
+
+        if (is_null($next)) {
+            $selanjutnya = '';
+        } else {
+            $selanjutnya = PostsM::find($next);
+        } 
+        $validateStatus = PostsM::with(['postingan','postauthor'])->where('post_slug', $request->post_slug)->where('post_status', '1')->first();
+        if (is_null($validateStatus)) {
+            return redirect('/');
+        }else{
+            $data = [
+                'sebelumnya' => $sebelumnya,
+                'selanjutnya' => $selanjutnya,
+                'post' => PostsM::with(['postingan','postauthor'])->where('post_slug', $request->post_slug)->where('post_status', '1')->first(),
+                'post_berita' => PostsM::with(['postingan','postauthor'])->where('post_status', '1')->where('post_category_id', '10')->orderByDesc('updated_at')->take(3)->get(),
+                'categories' => KategoriM::with('children')->where('parentid',0)->get(),
+                'settingweb' => SettingWebsiteM::first(),
+                'settingfront' => SettingFrontM::first(),
+                'settingbannerfront' => SettingBannerFrontM::first(),
+                'settingclients' => ClientsM::where('clients_status', '1')->get(),
+            ];
+            return view('front/page.attachment',$data);
+        }
+        
+    }
 }
