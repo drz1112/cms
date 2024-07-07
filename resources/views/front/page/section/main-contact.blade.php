@@ -11,31 +11,36 @@
           <div class="row gy-4">
             <div class="col-lg-12">
               <div class="info-wrap">
-                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                  <i class="bi bi-geo-alt flex-shrink-0"></i>
-                  <div>
-                    <h3>Alamat</h3>
-                    <p>{{ $settingweb->site_contact_address}}</p>
+                <div class="row">
+                  <div class="col-lg-5">
+                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                      <i class="bi bi-geo-alt flex-shrink-0"></i>
+                      <div>
+                        <h3>Alamat</h3>
+                        <p>{{ $settingweb->site_contact_address}}</p>
+                      </div>
+                    </div><!-- End Info Item -->
+                    
+                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                      <i class="bi bi-telephone flex-shrink-0"></i>
+                      <div>
+                        <h3>Kontak</h3>
+                        <p>{{ $settingweb->site_contact_wa}} <br> {{ $settingweb->site_contact_tlp }}</p>
+                      </div>
+                    </div><!-- End Info Item -->
+      
+                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                      <i class="bi bi-envelope flex-shrink-0"></i>
+                      <div>
+                        <h3>Email</h3>
+                        <p>{{ $settingweb->site_contact_email }}</p>
+                      </div>
+                    </div><!-- End Info Item -->
                   </div>
-                </div><!-- End Info Item -->
-                
-                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                  <i class="bi bi-telephone flex-shrink-0"></i>
-                  <div>
-                    <h3>Kontak</h3>
-                    <p>{{ $settingweb->site_contact_wa}} <br> {{ $settingweb->site_contact_tlp }}</p>
+                  <div class="col-lg-7">
+                    <iframe src="{{ $settingweb->site_maps }}" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                   </div>
-                </div><!-- End Info Item -->
-  
-                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                  <i class="bi bi-envelope flex-shrink-0"></i>
-                  <div>
-                    <h3>Email</h3>
-                    <p>{{ $settingweb->site_contact_email }}</p>
-                  </div>
-                </div><!-- End Info Item -->
-  
-                <iframe src="{{ $settingweb->site_maps }}" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
               </div>
             </div>
   

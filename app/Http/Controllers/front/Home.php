@@ -65,7 +65,7 @@ class Home extends Controller
         } 
         $validateStatus = PostsM::with(['postingan','postauthor'])->where('post_slug', $request->post_slug)->where('post_status', '1')->first();
         if (is_null($validateStatus)) {
-            return redirect('FrontHome.index');
+            return redirect()->route('FrontHome.index');
         }else{
             $data = [
                 'sebelumnya' => $sebelumnya,
@@ -77,6 +77,8 @@ class Home extends Controller
                 'settingfront' => SettingFrontM::first(),
                 'settingbannerfront' => SettingBannerFrontM::first(),
                 'settingclients' => ClientsM::where('clients_status', '1')->get(),
+                // 'settinglayout' => SettingLayoutM::first(),
+                'settinglayout' => SettingLayoutM::with('child_kategori_1_1','child_kategori_1_2','child_kategori_1_3','child_kategori_1_4', 'child_kategori_2_1', 'child_kategori_2_2', 'child_kategori_2_3', 'child_kategori_2_4')->first(),
             ];
             return view('front/page.attachment',$data);
         }
@@ -86,14 +88,14 @@ class Home extends Controller
     public function singlepage(Request $request){
         $checkTYPE = KategoriM::with('Pages')->where('slug',$request->post_slug)->first(); 
         if (is_null($checkTYPE)){
-            return redirect('FrontHome.index');
+            return redirect()->route('FrontHome.index');
         };
         if ($checkTYPE->type === 'page') {
             if(is_null($checkTYPE->pages)) {
-                return redirect('FrontHome.index');
+                return redirect()->route('FrontHome.index');
               }else{
                 if ($checkTYPE->pages->pages_status === '0') {
-                    return redirect('FrontHome.index');
+                    return redirect()->route('FrontHome.index');
                 }else{
                     $data = [
                         'post' => PagesM::with('postingan')->where('pages_slug',$checkTYPE->pages->pages_slug)->first(),
@@ -101,6 +103,7 @@ class Home extends Controller
                         'settingweb' => SettingWebsiteM::first(),
                         'settingfront' => SettingFrontM::first(),
                         'settingclients' => ClientsM::where('clients_status', '1')->get(),
+                        'settinglayout' => SettingLayoutM::first(),
                     ];
                     return view('front/page.singlepage',$data);
                 }
@@ -119,8 +122,10 @@ class Home extends Controller
                             ->where('post_category_id', $ids)
                             ->orderbyDesc('id')
                             ->paginate(10);
+            $getkategori = $postsM->first();
             if($postsM->isNotEmpty()){
                 $get_section_4 = SettingLayoutM::first();
+                
                 $data = [
                     'titles' => $checkArticle->namaKate,
                     'post' => $postsM,
@@ -129,13 +134,15 @@ class Home extends Controller
                     'settingfront' => SettingFrontM::first(),
                     'settingclients' => ClientsM::where('clients_status', '1')->get(),
                     'post_url_infopage' => KategoriM::where('id',$get_section_4->section_4_setID)->where('menustatus',1)->first(),
+                    'getKategori' => $getkategori->postingan->namaKate,
+                    'settinglayout' => SettingLayoutM::first(),
                 ];
                 return view('front/page.singlearticle',$data);
             }else{
-                return redirect('FrontHome.index');
+                return redirect()->route('FrontHome.index');
             }
         } else {
-            return redirect('FrontHome.index');
+            return redirect()->route('FrontHome.index');
         }  
     }
 }

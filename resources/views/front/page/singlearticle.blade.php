@@ -2,19 +2,19 @@
 @section('content')
 <div class="page-title aos-init aos-animate" data-aos="fade">
     <div class="container d-lg-flex justify-content-between align-items-center">
-      <h1 class="mb-2 mb-lg-0">{{Str::title($post_url_infopage->namaKate)}}</h1>
+      <h1 class="mb-2 mb-lg-0">{{Str::title($getKategori)}}</h1>
       <nav class="breadcrumbs">
         <ol>
           <li><a href="{{route('FrontHome.index')}}">Home</a></li>
-          <li class="current">{{Str::title($post_url_infopage->namaKate)}}</li>
+          <li class="current">{{Str::title($getKategori)}}</li>
         </ol>
       </nav>
     </div>
 </div>
 <section id="starter-section" class="starter-section section">
     <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-      <h2>{{Str::title($post_url_infopage->namaKate)}}</h2>
-      <p><span>Arsip</span> <span class="description-title">{{Str::title($post_url_infopage->namaKate)}}</span></p>
+      <h2>{{Str::title($getKategori)}}</h2>
+      <p><span>Arsip</span> <span class="description-title">{{Str::title($getKategori)}}</span></p>
     </div>
     <div class="container aos-init aos-animate" data-aos="fade-up">
       <div class="row">

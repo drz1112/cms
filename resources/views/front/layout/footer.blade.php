@@ -16,20 +16,20 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ route('FrontHome.single', $settinglayout->child_kategori_1_1->slug) }}">{{ $settinglayout->child_kategori_1_1->namaKate}}</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ route('FrontHome.single', $settinglayout->child_kategori_1_2->slug) }}">{{ $settinglayout->child_kategori_1_2->namaKate}}</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ route('FrontHome.single', $settinglayout->child_kategori_1_3->slug) }}">{{ $settinglayout->child_kategori_1_3->namaKate}}</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ route('FrontHome.single', $settinglayout->child_kategori_1_4->slug) }}">{{ $settinglayout->child_kategori_1_4->namaKate}}</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Our Services</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ route('FrontHome.single', $settinglayout->child_kategori_2_1->slug) }}">{{ $settinglayout->child_kategori_2_1->namaKate}}</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ route('FrontHome.single', $settinglayout->child_kategori_2_2->slug) }}">{{ $settinglayout->child_kategori_2_2->namaKate}}</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ route('FrontHome.single', $settinglayout->child_kategori_2_3->slug) }}">{{ $settinglayout->child_kategori_2_3->namaKate}}</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ route('FrontHome.single', $settinglayout->child_kategori_2_4->slug) }}">{{ $settinglayout->child_kategori_2_4->namaKate}}</a></li>
           </ul>
         </div>
 
