@@ -12,6 +12,7 @@ use App\Http\Controllers\backend\ProfilSingkat;
 use App\Http\Controllers\backend\SettingBannerFront;
 use App\Http\Controllers\backend\SettingBoxs;
 use App\Http\Controllers\backend\SettingFront;
+use App\Http\Controllers\backend\SettingLayout;
 use App\Http\Controllers\backend\SettingWebsite;
 use App\Http\Controllers\backend\Team;
 use App\Http\Controllers\front\Home as FrontHome;
@@ -74,6 +75,11 @@ Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindash
     Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access'], 'prefix' => '/setting-profil-singkat'], function () {
         Route::get('/home', [ProfilSingkat::class, 'index'])->name('profilsingkat.index');
         Route::put('/update', [ProfilSingkat::class, 'update'])->name('profilsingkat.update');
+    });
+    Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access'], 'prefix' => '/setting-layout'], function () {
+        Route::get('/home', [SettingLayout::class, 'index'])->name('settinglayout.index');
+        Route::put('/update', [SettingLayout::class, 'update'])->name('settinglayout.update');
+        Route::put('/updatedefault', [SettingLayout::class, 'updatedefault'])->name('settinglayout.updatedefault');
     });
 
     Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access'], 'prefix' => '/setting-team'], function () {

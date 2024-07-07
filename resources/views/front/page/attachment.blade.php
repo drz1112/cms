@@ -1,5 +1,6 @@
 @extends('front/layout.template')
 @section('content')
+@include('front/page/section.main-testimonial')
 <div class="page-title aos-init aos-animate" data-aos="fade">
     <div class="container d-lg-flex justify-content-between align-items-center">
       <h1 class="mb-2 mb-lg-0">Berita</h1>

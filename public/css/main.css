@@ -1751,7 +1751,7 @@ section,
 
 .faq .faq-container .faq-active .faq-toggle {
   transform: rotate(90deg);
-  color: var(--main-color);
+  color: var(--contrast-color);
 }
 
 /*--------------------------------------------------------------
