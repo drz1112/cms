@@ -86,14 +86,14 @@ class Home extends Controller
     public function singlepage(Request $request){
         $checkTYPE = KategoriM::with('Pages')->where('slug',$request->post_slug)->first(); 
         if (is_null($checkTYPE)){
-            return redirect('/');
+            return redirect('FrontHome.index');
         };
         if ($checkTYPE->type === 'page') {
             if(is_null($checkTYPE->pages)) {
-                return redirect('/');
+                return redirect('FrontHome.index');
               }else{
                 if ($checkTYPE->pages->pages_status === '0') {
-                    return redirect('/');
+                    return redirect('FrontHome.index');
                 }else{
                     $data = [
                         'post' => PagesM::with('postingan')->where('pages_slug',$checkTYPE->pages->pages_slug)->first(),
