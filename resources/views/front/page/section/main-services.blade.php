@@ -1,7 +1,9 @@
+  @if (count($post_berita) > 0)
     <section id="services" class="services section">
         <div class="container section-title" data-aos="fade-up">
-          <h2>Berita</h2>
-          <p><span>Berita</span> <span class="description-title">Terbaru</span></p>
+          <h2>{{Str::title($post_url_infopage->namaKate)}}</h2>
+          
+          <p><span>{{Str::title($post_url_infopage->namaKate)}}</span> <span class="description-title">Terbaru</span></p>
         </div>
         <div class="container">
           <div class="row g-4">
@@ -32,3 +34,4 @@
         </div>
         </div>
     </section>
+  @endif

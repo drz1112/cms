@@ -28,7 +28,7 @@
             @foreach ($categories as $item)
               @if ($item->children)
               <li class="dropdown">
-                <a href="#">{{ $item->namaKate; }}
+                <a href="{{ route('FrontHome.single', $item->slug) }}">{{ $item->namaKate; }}
                   @if (count($item->children) > 0)
                     @foreach ($item->children as $child)
                         @if ($child->menustatus > 0)
@@ -42,7 +42,7 @@
                   @if (count($item->children)>0)
                     @foreach ($item->children as $child)
                       @if ($child->menustatus == 1)
-                        <li><a href="">{{ $child->namaKate }}</a></li>
+                        <li><a href="{{ route('FrontHome.single', $child->slug) }}">{{ $child->namaKate }}</a></li>
                       @endif
                     @endforeach
                   @endif

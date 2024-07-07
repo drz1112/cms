@@ -12,6 +12,7 @@ use App\Models\backend\PostsM;
 use App\Models\backend\ProfilSingkatM;
 use App\Models\backend\SettingBannerFrontM;
 use App\Models\backend\SettingFrontM;
+use App\Models\backend\SettingLayoutM;
 use App\Models\backend\SettingWebsiteM;
 use App\Models\backend\TeamM;
 use App\Models\KategoriM;
@@ -20,19 +21,21 @@ use Illuminate\Http\Request;
 class Home extends Controller
 {
     public function index() {
+        $get_section_4 = SettingLayoutM::first();
         $data = [
             'settingweb' => SettingWebsiteM::first(),
             'settingfront' => SettingFrontM::first(),
             'settingbannerfront' => SettingBannerFrontM::first(),
             'settingboxs' => BoxM::first(),
             'settingclients' => ClientsM::where('clients_status', '1')->get(),
+            'settinglayout' => SettingLayoutM::first(),
             'post_profilsingkat' => ProfilSingkatM::first(),
             'post_galeri' => GaleriM::where('galeri_status', '1')->orderByDesc('created_at')->limit(8)->get(),
             'post_team' =>TeamM::get(),
-            'post_berita' => PostsM::with('postingan')->where('post_category_id', '3')->where('post_status', 1)->orderByDesc('updated_at')->limit(4)->get(),
+            'post_berita' => PostsM::with('postingan')->where('post_category_id', $get_section_4->section_4_setID)->where('post_status', 1)->orderByDesc('updated_at')->limit(4)->get(),
             'post_faq' => FaqM::where('faq_status', '1')->limit(5)->get(),
             'categories' => KategoriM::with('children')->where('parentid', 0)->where('menustatus', 1)->get(),
-            'post_url_infopage' => KategoriM::where('id','3')->where('menustatus',1)->first(),
+            'post_url_infopage' => KategoriM::where('id',$get_section_4->section_4_setID)->where('menustatus',1)->first(),
         ];
         return view('front/page.index', $data);
     }
@@ -115,8 +118,9 @@ class Home extends Controller
                             ->where('post_status', "1")
                             ->where('post_category_id', $ids)
                             ->orderbyDesc('id')
-                            ->paginate(1);
+                            ->paginate(10);
             if($postsM->isNotEmpty()){
+                $get_section_4 = SettingLayoutM::first();
                 $data = [
                     'titles' => $checkArticle->namaKate,
                     'post' => $postsM,
@@ -124,13 +128,14 @@ class Home extends Controller
                     'settingweb' => SettingWebsiteM::first(),
                     'settingfront' => SettingFrontM::first(),
                     'settingclients' => ClientsM::where('clients_status', '1')->get(),
+                    'post_url_infopage' => KategoriM::where('id',$get_section_4->section_4_setID)->where('menustatus',1)->first(),
                 ];
                 return view('front/page.singlearticle',$data);
             }else{
-                return redirect('/');
+                return redirect('FrontHome.index');
             }
         } else {
-            return redirect('/');
+            return redirect('FrontHome.index');
         }  
     }
 }
