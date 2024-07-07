@@ -17,7 +17,7 @@ class SettingBannerFront extends Controller
                     'text_1' =>'S1',
                     'text_1_color' =>'#FFFFFF',
                     'text_2' =>'Teknologi Informasi',
-                    'text_2_color' =>'#085284',
+                    'text_2_color' =>'#1e2188',
                     'text_3' =>'Universitas Muhammadiyah Klaten',
                     'text_3_color' =>'#FFFFFF',
                     'link_video' =>'https://www.youtube.com/watch?v=uZ29bL2Jt_c',

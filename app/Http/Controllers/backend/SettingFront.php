@@ -61,13 +61,13 @@ class SettingFront extends Controller
             'background_color' => '#ffffff',
             'default_color' => '#444444',
             'heading_color' => '#222222',
-            'main_color' => '#085284',
+            'main_color' => '#1e2188',
             'contrast_color' => '#ffffff',
-            'nav_color' => '#085284',
+            'nav_color' => '#1e2188',
             'nav_hover_color' => '#ffffff',
             'nav_dropdown_background_color' => '#ffffff',
             'nav_dropdown_color' => '#222222',
-            'nav_dropdown_hover_color' => '#085284',
+            'nav_dropdown_hover_color' => '#1e2188',
         ];
         SettingFrontM::first()->update($inputdata);
         return redirect()->route('settingsfront.index')->with('success', 'Update was successful!');
