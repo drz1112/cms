@@ -65,7 +65,7 @@ class Home extends Controller
         } 
         $validateStatus = PostsM::with(['postingan','postauthor'])->where('post_slug', $request->post_slug)->where('post_status', '1')->first();
         if (is_null($validateStatus)) {
-            return redirect('/');
+            return redirect('FrontHome.index');
         }else{
             $data = [
                 'sebelumnya' => $sebelumnya,
