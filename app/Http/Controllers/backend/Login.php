@@ -17,14 +17,23 @@ class Login extends Controller
             return view('backend/page.login', $data);
         }
     }
+    public function refreshCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img('math')]);
+    }
+
     public function authlogin(Request $request){
+        $request->validate([
+                'email' => 'required',
+                'password' => 'required',
+                'captcha' => 'required|captcha'
+            ],
+            ['captcha.captcha'=>'Invalid captcha code.']
+        );
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
+        
         $data = [
             'email' => $request->email,
             'password' => $request->password,

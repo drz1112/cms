@@ -21,7 +21,7 @@
             background-size: cover; /* Resize the background image to cover the entire container */
 		}
 		.backgr {
-			height: 350px;
+			height: 450px;
 			width: 350px;
 			margin-top: auto;
 			margin-bottom: auto;
@@ -108,6 +108,25 @@
 							</div>
 							<input type="password" name="password" class="form-control input_pass @error('password') is-invalid @enderror" value="" placeholder="Password">
 						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-puzzle-piece"></i></span>
+							</div>
+							<input id="captcha" type="text" class="form-control @error('captcha') is-invalid @enderror" placeholder="Enter Captcha" name="captcha">
+
+						</div>
+						<div class="input-group{{ $errors->has('captcha') ? ' has-error' : '' }}">
+								<div class="captcha">
+								<span>{!! captcha_img('math') !!}</span>
+									<button type="button" class="btn btn-success btn-refresh"><i class="fas fa-sync-alt"></i></button>
+								</div>	  
+								@if ($errors->has('captcha_error'))
+									<span class="help-block">
+										<strong>{{ $errors->first('captcha_error') }}</strong>
+									</span>
+								@endif
+						
+						</div>
                         <div class="d-flex justify-content-center mt-3">
 				 	        <button type="submit" class="btn btn-sm login_btn">Login</button>
 				        </div>
@@ -117,4 +136,19 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+
+
+	$(".btn-refresh").click(function(){
+		$.ajax({
+			type:'GET',
+			url:"{{ route('refreshCaptcha')}}",
+			success:function(data){
+			$(".captcha span").html(data.captcha);
+			}
+		});
+	});
+	
+	
+	</script>
 </html>

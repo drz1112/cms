@@ -25,6 +25,7 @@ Route::get('/{post_slug}', [FrontHome::class, 'singlepage'])->name('FrontHome.si
 Route::get('/cms-ti/login', [Login::class, 'login'])->name('login');
 Route::post('/cms-ti/authlogin', [Login::class, 'authlogin'])->name('ceklogin');
 Route::get('/cms-ti/authlogout', [Login::class, 'authlogout'])->name('auth.logout');
+Route::get('/cms-ti/refresh-Captcha', [Login::class, 'refreshCaptcha'])->name('refreshCaptcha');
 
 Route::group(['middleware' => ['auth', 'permission:alldashboard.access|admindashboard.access|anggota.access'], 'prefix' => '/cms-ti'], function () {
     Route::get('/dashboard', [BackHome::class, 'index'])->name('backhome.index');
