@@ -620,7 +620,7 @@ h6 {
           display: inline-block;
           padding: 3px 15px;
           color: #FFFFFF;
-          background: rgba(20, 24, 62, .7);
+          background:var(--main-color);
           border-radius: 25px;
           margin-bottom: 15px;
       }
@@ -629,6 +629,11 @@ h6 {
           color: var(--primary);
           background: #FFFFFF;
           border-color: #FFFFFF;
+      }
+      .case-overlay span.btn {
+          color: var(--contrast-color);
+          background: var(--main-color);
+          border-color:var(--main-color);
       }
 /*--------------------------------------------------------------
 # Preloader
